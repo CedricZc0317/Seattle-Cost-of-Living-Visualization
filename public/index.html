@@ -163,7 +163,87 @@
     </script>
 
   </section>
-    
+
+  <section>
+    <h2>Section 3: Affordability Over Time</h2>
+  
+    <style>
+      .viz-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+  
+      .left-viz {
+        flex: 2;
+      }
+  
+      .right-viz {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+  
+      .viz-box {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  
+    <div class="viz-container">
+      <!-- Main chart (left side) -->
+      <div class="left-viz viz-box">
+        <div id="observablehq-mySection3Viz-06edb9e7"></div>
+        <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=YOUR_KEY";
+          new Runtime().module(define, name => {
+            if (name === "mySection3Viz") return new Inspector(document.querySelector("#observablehq-mySection3Viz-06edb9e7"));
+          });
+        </script>
+      </div>
+  
+      <!-- Stacked charts (right side) -->
+      <div class="right-viz">
+        <div class="viz-box">
+          <div id="observablehq-myEggInteractiveChart-e5ceb4dd"></div>
+          <script type="module">
+            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+            import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=YOUR_KEY";
+            new Runtime().module(define, name => {
+              if (name === "myEggInteractiveChart") return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e5ceb4dd"));
+            });
+          </script>
+        </div>
+  
+        <div class="viz-box">
+          <div id="observablehq-myGasInteractiveChart-f90dcfa0"></div>
+          <script type="module">
+            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+            import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=YOUR_KEY";
+            new Runtime().module(define, name => {
+              if (name === "myGasInteractiveChart") return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-f90dcfa0"));
+            });
+          </script>
+        </div>
+  
+        <div class="viz-box">
+          <div id="observablehq-myRentInteractiveChart-24bf6017"></div>
+          <script type="module">
+            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+            import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=YOUR_KEY";
+            new Runtime().module(define, name => {
+              if (name === "myRentInteractiveChart") return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-24bf6017"));
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
 
   <footer>
