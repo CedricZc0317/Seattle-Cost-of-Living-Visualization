@@ -121,19 +121,22 @@
   
     <style>
       .viz-wrapper {
-        max-width: 1200px;
+        max-width: 100%;
         margin: auto;
+        padding: 0 20px;
       }
   
       .viz-container {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         gap: 20px;
-        align-items: flex-start;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
       }
   
       .left-viz {
         flex: 2;
+        min-width: 600px;
       }
   
       .right-viz {
@@ -141,6 +144,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        min-width: 320px;
       }
   
       .viz-box {
@@ -150,13 +154,24 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       }
   
-      @media (max-width: 1024px) {
+      @media (max-width: 900px) {
         .viz-container {
           flex-direction: column;
         }
   
-        .left-viz, .right-viz {
+        .left-viz,
+        .right-viz {
           width: 100%;
+        }
+  
+        .right-viz {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+  
+        .right-viz .viz-box {
+          width: 48%;
         }
       }
     </style>
