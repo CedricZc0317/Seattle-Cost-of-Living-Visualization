@@ -46,22 +46,22 @@
     
     <ol>
       <li>
-        <strong>Section 1 – Real Wages in Seattle</strong><br>
+        <strong>Section 1: Real Wages in Seattle</strong><br>
         <em>Goal:</em> Reveal how wage trends in key industries have evolved when adjusted for inflation.<br>
         <em>Approach:</em> Interactive line charts will display real vs. nominal wage growth across sectors.
       </li>
       <li>
-        <strong>Section 2 – What’s Driving the Cost of Living?</strong><br>
+        <strong>Section 2: What is Driving the Cost of Living?</strong><br>
         <em>Goal:</em> Break down which components - housing, food, transportation - are contributing most to cost increases.<br>
         <em>Approach:</em> Stacked area charts and interactive category filters will highlight disparities in price growth.
       </li>
       <li>
-        <strong>Section 3 – Affordability Over Time</strong><br>
+        <strong>Section 3: Affordability Over Time</strong><br>
         <em>Goal:</em> Translate economic metrics into real-world meaning by showing what a paycheck can buy today compared to the past.<br>
         <em>Approach:</em> Ratio-based visuals will illustrate how many eggs, gallons of gas, or square feet of rent an hour of work buys.
       </li>
       <li>
-        <strong>Section 4 – Cross-City Comparison</strong><br>
+        <strong>Section 4: Cross-City Comparison</strong><br>
         <em>Goal:</em> Contextualize Seattle’s trends within the broader national landscape.<br>
         <em>Approach:</em> Comparative visualizations with cities like NYC, SF, and LA will help assess whether Seattle’s affordability crisis is unique or part of a wider pattern.
       </li>
@@ -74,6 +74,35 @@
     </p>
     
   </section>
+
+
+  <section>
+    <h2>Section 1: Real Wages in Seattle</h2>
+
+
+  </section>
+
+
+  <section>
+    <h2>Section 2: What is Driving the Cost of Living?</h2>
+
+
+    <div id="observablehq-myCPIinteractiveChart-98bbe670"></div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=886942663c56148c28d7714634365ea63297b778";
+    new Runtime().module(define, name => {
+      if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-98bbe670"));
+    });
+    </script>
+
+
+
+  </section>
+
+
 
   <footer>
     <p>
