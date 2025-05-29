@@ -90,7 +90,20 @@
     </script>
 
   </section>
+  
+    <div id="observablehq-meanWageChart-36eae5c4"></div>
+    <div id="observablehq-meidanWageChart-36eae5c4"></div>
+    <p>Credit: <a href="https://observablehq.com/d/bcb9c5b93f96c770@66">Inflation of Seattle by CSE-512</a></p>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@66.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define, name => {
+      if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-36eae5c4"));
+      if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-36eae5c4"));
+    });
+    </script>
 
   <section>
     <h2>Section 2: What is Driving the Cost of Living?</h2>
