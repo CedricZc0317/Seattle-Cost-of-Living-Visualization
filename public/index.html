@@ -78,16 +78,17 @@
 
   <section>
     <h2>Section 1: Real Wages in Seattle</h2>
-    <div id="observablehq-cpiChart-ef0f77c7"></div>
+    <div id="observablehq-cpiChart-0d189978"></div>
+    <p>Credit: <a href="https://observablehq.com/d/bcb9c5b93f96c770">Inflation of Seattle by CSE-512</a></p>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@59.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
     new Runtime().module(define, name => {
-      if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-ef0f77c7"));
+      if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-0d189978"));
     });
-  </script>
+    </script>
 
   </section>
 
