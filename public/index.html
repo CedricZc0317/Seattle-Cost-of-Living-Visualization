@@ -205,6 +205,43 @@
       </div>
     </div>
 
+    <div class="write-up">
+      <p>
+        The upper visualization presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs for Seattle-Tacoma-Bellevue residents. The visualization is derived from four primary datasets:
+      </p>
+      <ul>
+        <li><strong>Egg Prices:</strong> Annual average data for Grade A, large eggs (per dozen) in U.S. city average, collected from the <a href="https://www.bls.gov" target="_blank">U.S. Bureau of Labor Statistics</a>.</li>
+        <li><strong>Rental Prices:</strong> ZORI (Smoothed) All Homes Plus Multifamily Time Series data from <a href="https://www.zillow.com/research/data/" target="_blank">Zillow Research</a>.</li>
+        <li><strong>Gasoline Prices:</strong> Washington All Grades All Formulations Retail Gasoline Prices (Dollars per Gallon) from the <a href="https://www.eia.gov/dnav/pet/pet_pri_gnd_dcus_swa_m.htm" target="_blank">U.S. Energy Information Administration</a>.</li>
+        <li><strong>Hourly Wages:</strong> Average Hourly Earnings of All Employees: Total Private in Seattle-Tacoma-Bellevue, WA (MSA), annual average (not seasonally adjusted), from the <a href="https://fred.stlouisfed.org/series/SMU53439000500000003A" target="_blank">Federal Reserve Bank of St. Louis (FRED)</a>.</li>
+      </ul>
+      <p>
+        From these data sources, three conversion metrics are calculated to provide context for affordability:
+      </p>
+      <ul>
+        <li><strong>CPI_Eggs_convertion:</strong> Calculated as <code>hourly wage / egg price</code>, indicating how many dozens of eggs a person can buy with one hour of work.</li>
+        <li><strong>Rent_convertion:</strong> Calculated as <code>monthly rent / hourly wage</code>, indicating how many hours of work are required to pay for one month of rent.</li>
+        <li><strong>Gasoline_convertion:</strong> Calculated as <code>hourly wage / gasoline price</code>, indicating how many gallons of gasoline one can purchase with one hour of work.</li>
+      </ul>
+      <p>
+        It's important to note that the egg price data reflects a national average, while the wage, rent, and gasoline data are specific to the Seattle-Tacoma-Bellevue metropolitan area.
+      </p>
+      <p>
+        The red dashed line in the chart represents the progression of hourly wages from 2015 to 2024. Users can hover over the line or the colored bars to reveal exact values for each category, enabling interactive exploration of real-world purchasing power.
+      </p>
+      <p>
+        The <strong>bottom three visualizations</strong> break out the individual time series for each component:
+      </p>
+      <ol>
+        <li><strong>Egg Price per Dozen:</strong> Shows the fluctuation of average egg prices across time for the U.S. national average.</li>
+        <li><strong>Gasoline Price per Gallon:</strong> Displays monthly retail gasoline price trends for Washington state.</li>
+        <li><strong>Rental Price:</strong> Depicts changes in monthly rent prices (Zillow Observed Rent Index) for Seattle.</li>
+      </ol>
+      <p>
+        Each of these charts supports hover interaction to view exact price values over time, allowing for a detailed understanding of temporal trends in essential living costs.
+      </p>
+    </div>    
+
 
   </section>
 
