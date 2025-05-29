@@ -78,6 +78,7 @@
 
   <section>
     <h2>Section 1: Real Wages in Seattle</h2>
+
     <h3>Seattle CPI through Years</h3>
     <div id="observablehq-cpiChart-0d189978"></div>
 
@@ -92,16 +93,16 @@
 
   </section>
     <h3>Mean Vs. Median</h3>
-    <div id="observablehq-meanWageChart-36eae5c4"></div>
-    <div id="observablehq-meidanWageChart-36eae5c4"></div>
+    <div id="observablehq-meanWageChart-0dffdf45"></div>
+    <div id="observablehq-meidanWageChart-0dffdf45"></div>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@66.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
     new Runtime().module(define, name => {
-      if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-36eae5c4"));
-      if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-36eae5c4"));
+      if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-0dffdf45"));
+      if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-0dffdf45"));
     });
     </script>
 
@@ -317,7 +318,6 @@
     <h2>Section 4: Cross-City Comparison</h2>
     <h3>Cross-City CPI Comparison</h3>
     <div id="observablehq-CPI_muti-6f2999bb"></div>
-    <p>Credit: <a href="https://observablehq.com/d/bcb9c5b93f96c770@124">Inflation of Seattle by CSE-512</a></p>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
