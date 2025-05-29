@@ -314,6 +314,18 @@
 
   <section>
     <h2>Section 4: Cross-City Comparison</h2>
+    <h3>Cross-City CPI Comparison</h3>
+    <div id="observablehq-CPI_muti-6f2999bb"></div>
+    <p>Credit: <a href="https://observablehq.com/d/bcb9c5b93f96c770@124">Inflation of Seattle by CSE-512</a></p>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define, name => {
+      if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
+    });
+    </script>
 
 
   </section>
