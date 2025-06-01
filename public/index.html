@@ -146,6 +146,36 @@
       background-color: #f9f9f9;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      min-height: 300px;
+    }
+    
+    .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .chart-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .chart-box {
+      flex: 1;
+      min-width: 300px;
+      min-height: 300px;
+      background: #f0f8ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    
+    .chart-box p {
+      color: #3498db;
+      font-weight: bold;
     }
     
     footer {
@@ -229,6 +259,14 @@
       
       .content-container {
         padding: 15px;
+      }
+      
+      .chart-row {
+        flex-direction: column;
+      }
+      
+      .chart-box {
+        min-width: 100%;
       }
     }
   </style>
@@ -322,19 +360,38 @@
 
           <h3>Seattle CPI through Years</h3>
           <div class="chart-container">
-            <div style="height: 300px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-              <p style="color: #3498db; font-weight: bold;">Seattle CPI Chart Visualization</p>
+            <div id="observablehq-cpiChart-0d189978" class="chart-box">
+              <p>Loading CPI Chart...</p>
             </div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+              new Runtime().module(define, name => {
+                if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-0d189978"));
+              });
+            </script>
           </div>
 
           <h3>Mean Vs. Median</h3>
           <div class="chart-container">
-            <div style="height: 300px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 20px;">
-              <p style="color: #3498db; font-weight: bold;">Mean Wage Chart Visualization</p>
+            <div class="chart-wrapper">
+              <div id="observablehq-meanWageChart-0dffdf45" class="chart-box">
+                <p>Loading Mean Wage Chart...</p>
+              </div>
+              <div id="observablehq-meidanWageChart-0dffdf45" class="chart-box">
+                <p>Loading Median Wage Chart...</p>
+              </div>
             </div>
-            <div style="height: 300px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-              <p style="color: #3498db; font-weight: bold;">Median Wage Chart Visualization</p>
-            </div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+              new Runtime().module(define, name => {
+                if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-0dffdf45"));
+                if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-0dffdf45"));
+              });
+            </script>
           </div>
 
           <h2>Write-up: Seattle Wages and Cost of Living</h2>
@@ -374,9 +431,17 @@
           <h2>Section 2: What is Driving the Cost of Living?</h2>
           
           <div class="chart-container">
-            <div style="height: 400px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-              <p style="color: #3498db; font-weight: bold;">CPI Components Interactive Chart</p>
+            <div id="observablehq-myCPIinteractiveChart-c80d0d45" class="chart-box">
+              <p>Loading CPI Components Chart...</p>
             </div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+              import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+              new Runtime().module(define, name => {
+                if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
+              });
+            </script>
           </div>
 
           <p>
@@ -405,25 +470,47 @@
           <h2>Section 3: Affordability Over Time</h2>
           
           <div class="chart-container">
-            <div style="height: 50px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 20px;">
-              <p style="color: #3498db; font-weight: bold;">Category Selection Interface</p>
+            <div id="observablehq-viewof-selected_category-f2c244f7" class="chart-box">
+              <p>Loading Category Selector...</p>
             </div>
-            
-            <div style="height: 300px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 20px;">
-              <p style="color: #3498db; font-weight: bold;">Affordability Visualization</p>
+            <div id="observablehq-mySection3Viz-9b234192" class="chart-box">
+              <p>Loading Affordability Chart...</p>
             </div>
-            
-            <div style="height: 250px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 20px;">
-              <p style="color: #3498db; font-weight: bold;">Egg Price Chart</p>
+            <div class="chart-row">
+              <div id="observablehq-myEggInteractiveChart-e90a81eb" class="chart-box">
+                <p>Loading Egg Price Chart...</p>
+              </div>
+              <div id="observablehq-myGasInteractiveChart-b278fe92" class="chart-box">
+                <p>Loading Gas Price Chart...</p>
+              </div>
+              <div id="observablehq-myRentInteractiveChart-0b0a5795" class="chart-box">
+                <p>Loading Rent Price Chart...</p>
+              </div>
             </div>
-            
-            <div style="height: 250px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 20px;">
-              <p style="color: #3498db; font-weight: bold;">Gas Price Chart</p>
-            </div>
-            
-            <div style="height: 250px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-              <p style="color: #3498db; font-weight: bold;">Rent Price Chart</p>
-            </div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+              import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+              const runtime = new Runtime();
+              runtime.module(define, name => {
+                if (name === "viewof selected_category") {
+                  return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+                }
+                if (name === "mySection3Viz") {
+                  return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+                }
+                if (name === "myEggInteractiveChart") {
+                  return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+                }
+                if (name === "myGasInteractiveChart") {
+                  return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
+                }
+                if (name === "myRentInteractiveChart") {
+                  return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
+                }
+                return false;
+              });
+            </script>
           </div>
 
           <div class="write-up">
@@ -455,16 +542,32 @@
           
           <h3>Cross-City CPI Comparison</h3>
           <div class="chart-container">
-            <div style="height: 300px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 30px;">
-              <p style="color: #3498db; font-weight: bold;">Cross-City CPI Comparison Chart</p>
+            <div id="observablehq-CPI_muti-6f2999bb" class="chart-box">
+              <p>Loading CPI Comparison Chart...</p>
             </div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+              new Runtime().module(define, name => {
+                if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
+              });
+            </script>
           </div>
 
           <h3>Cross-City Mean Wage Comparison</h3>
           <div class="chart-container">
-            <div style="height: 300px; background: #f0f8ff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-              <p style="color: #3498db; font-weight: bold;">Cross-City Mean Wage Comparison Chart</p>
+            <div id="observablehq-multi_meanWage-4fd0aa6f" class="chart-box">
+              <p>Loading Wage Comparison Chart...</p>
             </div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+              new Runtime().module(define, name => {
+                if (name === "multi_meanWage") return new Inspector(document.querySelector("#observablehq-multi_meanWage-4fd0aa6f"));
+              });
+            </script>
           </div>
 
           <h3>Key Insights</h3>
@@ -516,11 +619,11 @@
         
         <footer>
           <p>
-            <a href="#">Repository</a>
+            <a href="https://gitlab.cs.washington.edu/cse512/25sp/fp/seattle-under-inflation-a-visual-analysis-of-real-wages-consumption-and-cost-of-living">Repository</a>
             <br>
-            <a href="#">CSE 512 Data Visualization</a>
+            <a href="https://courses.cs.washington.edu/courses/cse512/25sp/">CSE 512 Data Visualization</a>
             <br>
-            <a href="#">University of Washington</a>
+            <a href="https://www.washington.edu">University of Washington</a>
           </p>
         </footer>
       </div>
@@ -581,13 +684,9 @@
       
       // Keyboard navigation
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
           updatePage(currentPage - 1);
-        } else if (e.key === 'ArrowRight') {
-          updatePage(currentPage + 1);
-        } else if (e.key === 'ArrowUp') {
-          updatePage(currentPage - 1);
-        } else if (e.key === 'ArrowDown') {
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
           updatePage(currentPage + 1);
         }
       });
@@ -609,7 +708,7 @@
         const newPage = Math.round(scrollPosition / pageHeight) + 1;
         
         // Update the current page if it has changed
-        if (newPage !== currentPage) {
+        if (newPage !== currentPage && newPage >= 1 && newPage <= pages.length) {
           currentPage = newPage;
           
           // Update dot states
