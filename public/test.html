@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seattle Data Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: white;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .page {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: white;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .page.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #34495e;
+        }
+
+        .page p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .navigation {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-dot.active {
+            background: #2c3e50;
+            transform: scale(1.2);
+            border-color: #34495e;
+        }
+
+        .nav-dot:hover {
+            background: #7f8c8d;
+            transform: scale(1.1);
+        }
+
+        .chart-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 800px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+        }
+
+        .footer-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Observable visualization styling */
+        .visualization-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem 0;
+        }
+
+        .visualization-container > div {
+            margin: 1rem 0;
+        }
+
+        /* Ensure Observable charts are responsive */
+        .visualization-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Introduction -->
+        <div class="page active" id="page1">
+            <h1>Real Wages in Seattle</h1>
+            <p>This visualization explores the rising cost of living in the Seattle-Tacoma-Bellevue area by modeling the Consumer Price Index (CPI) from across various spending categories for 2015 to 2024. The data comes from the U.S. Bureau of Labor Statistics (BLS).</p>
+            <p>Specifically, we manipulate the magnitude and variation of inflation across these components, a dataset that chart is used. This simulation will not display the cumulative impact of inflation over time but also distinguishes category-specific contributions to the overall index.</p>
+            <div class="scroll-hint">Scroll down or use navigation dots →</div>
+        </div>
+
+        <!-- Page 2: What is Driving the Cost of Living? -->
+        <div class="page" id="page2">
+            <h2>What is Driving the Cost of Living?</h2>
+            <p>In this section, we explore the evolving economic conditions for residents of Seattle from 2015 to 2024, focusing on the Consumer Price Index (CPI) components that drive cost of living changes.</p>
+            <p>The visualization below shows how different spending categories contribute to the overall cost of living in the Seattle-Tacoma-Bellevue area:</p>
+            
+            <!-- Replace chart-placeholder with CPI Interactive Chart -->
+            <div class="visualization-container">
+                <div id="observablehq-myCPIinteractiveChart-c80d0d45"></div>
+            </div>
+        </div>
+
+        <!-- Page 3: What is Living Cost of Living -->
+        <div class="page" id="page3">
+            <h2>What is Living Cost of Living?</h2>
+            <p>This visualization explores the rising cost of living in the Seattle-Tacoma-Bellevue area by examining the Consumer Price Index (CPI) from various data spending categories from 2015 to 2024. The data comes from the U.S. Bureau of Labor Statistics (BLS).</p>
+            <p>Specifically, we manipulate the magnitude and variation of inflation across these components, a dataset that chart is used. This simulation will not display the cumulative impact of inflation over time but also distinguishes category-specific contributions to the overall index.</p>
+            
+            <!-- Replace chart-placeholder with your actual Observable visualizations -->
+            <div class="visualization-container">
+                <div id="observablehq-viewof-selected_category-f2c244f7"></div>
+                <div id="observablehq-mySection3Viz-9b234192"></div>
+                <div id="observablehq-myEggInteractiveChart-e90a81eb"></div>
+                <div id="observablehq-myGasInteractiveChart-b278fe92"></div>
+                <div id="observablehq-myRentInteractiveChart-0b0a5795"></div>
+            </div>
+        </div>
+
+        <!-- Page 4: Affordability Over Time -->
+        <div class="page" id="page4">
+            <h2>Affordability Over Time</h2>
+            <p>The upper visualization presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs for Seattle-Tacoma-Bellevue residents. The visualization is derived from four primary datasets:</p>
+            <div class="chart-placeholder">
+                <p>Affordability Analysis Chart</p>
+            </div>
+            <p>From these data sources, three conversion metrics are calculated to provide context for affordability:</p>
+            <ul style="text-align: left; max-width: 600px;">
+                <li><strong>Egg Price per Dozen:</strong> Shows the fluctuation of average egg prices across time for the U.S. national average</li>
+                <li><strong>Gasoline Price per Gallon:</strong> Displays monthly retail gasoline price trends for Washington state</li>
+                <li><strong>Rental Prices:</strong> Depicts changes in monthly rent prices for Seattle</li>
+            </ul>
+        </div>
+
+        <!-- Page 5: Cross-City Wage Comparison -->
+        <div class="page" id="page5">
+            <h2>Cross-City Wage Comparison</h2>
+            <p>To contextualize Seattle's wage and cost of living trends, we compare these against three major metropolitan areas: San Francisco, New York City, and Chicago. These cities are selected based on their population size, economic impact, and high urban living costs.</p>
+            <div class="chart-placeholder">
+                <p>Multi-City Comparison Charts</p>
+            </div>
+            <p>Key Insights:</p>
+            <ul style="text-align: left; max-width: 600px;">
+                <li>Seattle wage growth appears to outpace pace with its rising CPI, suggesting partial income cost alignment</li>
+                <li>San Francisco shows both the strongest wage levels and cost of living, raising questions about net affordability</li>
+                <li>New York maintains a moderate position in both metrics, showing stability rather than volatility</li>
+                <li>Chicago continues to offer the strongest cost of living with steady wage growth, making it potentially more affordable overall</li>
+            </ul>
+        </div>
+
+        <!-- Page 6: Conclusion and Team -->
+        <div class="page" id="page6">
+            <h2>Conclusion & Team</h2>
+            <p>Together, these comparisons help users better understand not just how much people earn in different cities, but also how far those earnings actually go when accounting for the cost of living.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Team Member 1</h3>
+                    <p>Data Analysis & Visualization</p>
+                </div>
+                <div class="team-member">
+                    <h3>Team Member 2</h3>
+                    <p>Frontend Development</p>
+                </div>
+                <div class="team-member">
+                    <h3>Team Member 3</h3>
+                    <p>Research & Content</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://gitlab.cs.washington.edu/cse512/23sp/fp/seattle-under-inflation-a-visual-analysis-of-real-wages-consumption-and-cost-of-living">Repository</a>
+                <a href="https://courses.cs.washington.edu/courses/cse512/23sp/">CSE 512 Data Visualizations</a>
+                <a href="https://www.washington.edu/">University of Washington</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="navigation">
+        <div class="nav-dot active" data-page="1"></div>
+        <div class="nav-dot" data-page="2"></div>
+        <div class="nav-dot" data-page="3"></div>
+        <div class="nav-dot" data-page="4"></div>
+        <div class="nav-dot" data-page="5"></div>
+        <div class="nav-dot" data-page="6"></div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 6;
+        
+        // Get all pages and navigation dots
+        const pages = document.querySelectorAll('.page');
+        const navDots = document.querySelectorAll('.nav-dot');
+        
+        // Function to show specific page
+        function showPage(pageNum) {
+            // Remove active class from all pages and dots
+            pages.forEach(page => page.classList.remove('active'));
+            navDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Add active class to current page and dot
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            navDots[pageNum - 1].classList.add('active');
+            
+            currentPage = pageNum;
+        }
+        
+        // Handle wheel scroll
+        let isScrolling = false;
+        document.addEventListener('wheel', (e) => {
+            if (isScrolling) return;
+            
+            isScrolling = true;
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+            
+            if (e.deltaY > 0 && currentPage < totalPages) {
+                // Scroll down
+                showPage(currentPage + 1);
+            } else if (e.deltaY < 0 && currentPage > 1) {
+                // Scroll up
+                showPage(currentPage - 1);
+            }
+        });
+        
+        // Handle navigation dot clicks
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showPage(index + 1);
+            });
+        });
+        
+        // Handle keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' && currentPage < totalPages) {
+                showPage(currentPage + 1);
+            } else if (e.key === 'ArrowUp' && currentPage > 1) {
+                showPage(currentPage - 1);
+            }
+        });
+        
+        // Handle touch events for mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && currentPage < totalPages) {
+                    // Swipe up - go to next page
+                    showPage(currentPage + 1);
+                } else if (diff < 0 && currentPage > 1) {
+                    // Swipe down - go to previous page
+                    showPage(currentPage - 1);
+                }
+            }
+        }
+    </script>
+
+    <!-- Observable notebook integration -->
+    <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+        
+        const runtime = new Runtime();
+        
+        runtime.module(define, name => {
+            // Map each component to its container
+            if (name === "myCPIinteractiveChart") {
+                return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
+            }
+            if (name === "viewof_selected_category") {
+                return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+            }
+            if (name === "mySection3Viz") {
+                return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+            }
+            if (name === "myEggInteractiveChart") {
+                return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+            }
+            if (name === "myGasInteractiveChart") {
+                return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
+            }
+            if (name === "myRentInteractiveChart") {
+                return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
+            }
+            return false;
+        });
+    </script>
+</body>
+</html>
