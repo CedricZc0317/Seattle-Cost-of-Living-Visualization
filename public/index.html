@@ -273,10 +273,8 @@
     /* NEW: Section 3 specific styles */
     .affordability-container {
       display: grid;
-      grid-template-columns: 1.5fr 1fr; /* Left column larger */
-      grid-template-rows: auto 1fr; /* First row for selector, second for main viz */
+      grid-template-columns: 1fr;
       gap: 20px;
-      height: 100%;
     }
     
     .category-selector-container {
@@ -284,8 +282,6 @@
       padding: 15px;
       border-radius: 8px;
       border: 1px solid #e9ecef;
-      grid-column: 1;
-      grid-row: 1;
     }
     
     .main-viz-container {
@@ -293,71 +289,26 @@
       background: #f0f8ff;
       border-radius: 8px;
       padding: 15px;
-      grid-column: 1;
-      grid-row: 2;
     }
     
-    .price-charts-column {
-      grid-column: 2;
-      grid-row: 1 / span 2; /* Span both rows */
-      display: flex;
-      flex-direction: column;
+    .price-charts-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      margin-top: 20px;
     }
     
     .price-chart {
       background: #f0f8ff;
       border-radius: 8px;
-      min-height: 250px; /* Adjusted for vertical stacking */
+      min-height: 300px;
       padding: 15px;
-      flex: 1; /* Equal height distribution */
     }
     
     @media (max-width: 1024px) {
-      .affordability-container {
+      .price-charts-container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
       }
-      
-      .price-charts-column {
-        grid-column: 1;
-        grid-row: 3;
-        flex-direction: row;
-      }
-      
-      .price-chart {
-        min-height: 300px;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .price-charts-column {
-        flex-direction: column;
-      }
-    }
-    
-    /* Ensure no horizontal scrolling in Section 3 */
-    #page4 .content-container {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    #page4 section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-    
-    #page4 .affordability-container {
-      flex: 1;
-      min-height: 0;
-    }
-    
-    #page4 .main-viz-container,
-    #page4 .price-chart {
-      overflow: hidden;
     }
   </style>
 </head>
@@ -560,22 +511,22 @@
           <h2>Section 3: Affordability Over Time</h2>
           
           <div class="affordability-container">
-            <!-- Category Selector (Top Left) -->
+            <!-- Category Selector -->
             <div class="category-selector-container">
               <div id="observablehq-viewof-selected_category-f2c244f7">
                 <p>Loading Category Selector...</p>
               </div>
             </div>
             
-            <!-- Main Affordability Chart (Bottom Left) -->
+            <!-- Main Affordability Chart -->
             <div class="main-viz-container">
               <div id="observablehq-mySection3Viz-9b234192">
                 <p>Loading Affordability Chart...</p>
               </div>
             </div>
             
-            <!-- Price Charts Column (Right Side) -->
-            <div class="price-charts-column">
+            <!-- Price Charts - Now in a single row -->
+            <div class="price-charts-container">
               <div class="price-chart" id="observablehq-myEggInteractiveChart-e90a81eb">
                 <h3>Egg Price per Dozen</h3>
                 <p>Loading Egg Price Chart...</p>
@@ -630,7 +581,7 @@
               <li><strong>Gasoline_convertion:</strong> How many gallons of gasoline one can purchase with one hour of work.</li>
             </ul>
             <p>
-              The right column visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics.
+              The bottom three visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics.
             </p>
           </div>
         </section>
