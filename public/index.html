@@ -156,14 +156,14 @@
     <h2>Section 2: What is Driving the Cost of Living?</h2>
 
 
-    <div id="observablehq-myCPIinteractiveChart-98bbe670"></div>
+    <div id="observablehq-myCPIinteractiveChart-c80d0d45"></div>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=886942663c56148c28d7714634365ea63297b778";
+    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
     new Runtime().module(define, name => {
-      if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-98bbe670"));
+      if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
     });
     </script>
 
@@ -185,131 +185,143 @@
 
   </section>
 
-  <section>
-    <h2>Section 3: Affordability Over Time</h2>
+<section>
+  <h2>Section 3: Affordability Over Time</h2>
   
-    <style>
-      .viz-wrapper {
-        max-width: 1200px;
-        margin: auto;
-        padding: 0 20px;
-      }
+  <style>
+    .viz-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
   
-      .viz-top {
-        margin-bottom: 30px;
-      }
+    .viz-top {
+      margin-bottom: 30px;
+    }
   
+    .viz-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  
+    .viz-box {
+      flex: 1;
+      min-width: 300px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    @media (max-width: 900px) {
       .viz-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+        flex-direction: column;
       }
-  
-      .viz-box {
-        flex: 1;
-        min-width: 300px;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 6px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      }
-  
-      @media (max-width: 900px) {
-        .viz-row {
-          flex-direction: column;
-        }
-      }
-    </style>
+    }
+  </style>
+
+  <div id="observablehq-viewof-selected_category-f2c244f7"></div>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+  import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+  new Runtime().module(define, name => {
+    if (name === "viewof selected_category") return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+    return ["mySection3Viz","myEggInteractiveChart","myGasInteractiveChart","myRentInteractiveChart"].includes(name);
+  });
+  </script>
   
   
-    <div class="viz-wrapper">
-      <div class="viz-top viz-box">
-        <div id="observablehq-mySection3Viz-06edb9e7"></div>
+  <div class="viz-wrapper">
+    <div class="viz-top viz-box">
+      <div id="observablehq-mySection3Viz-9b234192"></div>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+      <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+      new Runtime().module(define, name => {
+        if (name === "mySection3Viz") return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+      });
+      </script>
+    </div>
+  
+    <div class="viz-row">
+      <div class="viz-box">
+        <div id="observablehq-myEggInteractiveChart-e90a81eb"></div>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
         <script type="module">
-          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-          import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=886942663c56148c28d7714634365ea63297b778";
-          new Runtime().module(define, name => {
-            if (name === "mySection3Viz") return new Inspector(document.querySelector("#observablehq-mySection3Viz-06edb9e7"));
-          });
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+        new Runtime().module(define, name => {
+          if (name === "myEggInteractiveChart") return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+        });
         </script>
       </div>
   
-      <div class="viz-row">
-        <div class="viz-box">
-          <div id="observablehq-myEggInteractiveChart-e5ceb4dd"></div>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-          <script type="module">
-            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-            import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=886942663c56148c28d7714634365ea63297b778";
-            new Runtime().module(define, name => {
-              if (name === "myEggInteractiveChart") return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e5ceb4dd"));
-            });
-          </script>
-        </div>
+      <div class="viz-box">
+        <div id="observablehq-myGasInteractiveChart-b278fe92"></div>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+        <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+        new Runtime().module(define, name => {
+          if (name === "myGasInteractiveChart") return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
+        });
+        </script>
+      </div>
   
-        <div class="viz-box">
-          <div id="observablehq-myGasInteractiveChart-f90dcfa0"></div>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-          <script type="module">
-            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-            import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=886942663c56148c28d7714634365ea63297b778";
-            new Runtime().module(define, name => {
-              if (name === "myGasInteractiveChart") return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-f90dcfa0"));
-            });
-          </script>
-        </div>
-  
-        <div class="viz-box">
-          <div id="observablehq-myRentInteractiveChart-24bf6017"></div>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-          <script type="module">
-            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-            import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4&api_key=886942663c56148c28d7714634365ea63297b778";
-            new Runtime().module(define, name => {
-              if (name === "myRentInteractiveChart") return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-24bf6017"));
-            });
-          </script>
-        </div>
+      <div class="viz-box">
+        <div id="observablehq-myRentInteractiveChart-0b0a5795"></div>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+        <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+        new Runtime().module(define, name => {
+          if (name === "myRentInteractiveChart") return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
+        });
+        </script>
       </div>
     </div>
+  </div>
 
-    <div class="write-up">
-      <p>
-        The upper visualization presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs for Seattle-Tacoma-Bellevue residents. The visualization is derived from four primary datasets:
-      </p>
-      <ul>
-        <li><strong>Egg Prices:</strong> Annual average data for Grade A, large eggs (per dozen) in U.S. city average, collected from the <a href="https://www.bls.gov" target="_blank">U.S. Bureau of Labor Statistics</a>.</li>
-        <li><strong>Rental Prices:</strong> ZORI (Smoothed) All Homes Plus Multifamily Time Series data from <a href="https://www.zillow.com/research/data/" target="_blank">Zillow Research</a>.</li>
-        <li><strong>Gasoline Prices:</strong> Washington All Grades All Formulations Retail Gasoline Prices (Dollars per Gallon) from the <a href="https://www.eia.gov/dnav/pet/pet_pri_gnd_dcus_swa_m.htm" target="_blank">U.S. Energy Information Administration</a>.</li>
-        <li><strong>Hourly Wages:</strong> Average Hourly Earnings of All Employees: Total Private in Seattle-Tacoma-Bellevue, WA (MSA), annual average (not seasonally adjusted), from the <a href="https://fred.stlouisfed.org/series/SMU53439000500000003A" target="_blank">Federal Reserve Bank of St. Louis (FRED)</a>.</li>
-      </ul>
-      <p>
-        From these data sources, three conversion metrics are calculated to provide context for affordability:
-      </p>
-      <ul>
-        <li><strong>CPI_Eggs_convertion:</strong> Calculated as hourly wage / egg price, indicating how many dozens of eggs a person can buy with one hour of work.</li>
-        <li><strong>Rent_convertion:</strong> Calculated as monthly rent / hourly wage, indicating how many hours of work are required to pay for one month of rent.</li>
-        <li><strong>Gasoline_convertion:</strong> Calculated as hourly wage / gasoline price, indicating how many gallons of gasoline one can purchase with one hour of work.</li>
-      </ul>
-      <p>
-        It's important to note that the egg price data reflects a national average, while the wage, rent, and gasoline data are specific to the Seattle-Tacoma-Bellevue metropolitan area.
-      </p>
-      <p>
-        The red dashed line in the chart represents the progression of hourly wages from 2015 to 2024. Users can hover over the line or the colored bars to reveal exact values for each category, enabling interactive exploration of real-world purchasing power.
-      </p>
-      <p>
-        The <strong>bottom three visualizations</strong> break out the individual time series for each component:
-      </p>
-      <ol>
-        <li><strong>Egg Price per Dozen:</strong> Shows the fluctuation of average egg prices across time for the U.S. national average.</li>
-        <li><strong>Gasoline Price per Gallon:</strong> Displays monthly retail gasoline price trends for Washington state.</li>
-        <li><strong>Rental Price:</strong> Depicts changes in monthly rent prices (Zillow Observed Rent Index) for Seattle.</li>
-      </ol>
-      <p>
-        Each of these charts supports hover interaction to view exact price values over time, allowing for a detailed understanding of temporal trends in essential living costs.
-      </p>
-    </div>    
+  <div class="write-up">
+    <p>
+      The upper visualization presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs for Seattle-Tacoma-Bellevue residents. The visualization is derived from four primary datasets:
+    </p>
+    <ul>
+      <li><strong>Egg Prices:</strong> Annual average data for Grade A, large eggs (per dozen) in U.S. city average, collected from the <a href="https://www.bls.gov" target="_blank">U.S. Bureau of Labor Statistics</a>.</li>
+      <li><strong>Rental Prices:</strong> ZORI (Smoothed) All Homes Plus Multifamily Time Series data from <a href="https://www.zillow.com/research/data/" target="_blank">Zillow Research</a>.</li>
+      <li><strong>Gasoline Prices:</strong> Washington All Grades All Formulations Retail Gasoline Prices (Dollars per Gallon) from the <a href="https://www.eia.gov/dnav/pet/pet_pri_gnd_dcus_swa_m.htm" target="_blank">U.S. Energy Information Administration</a>.</li>
+      <li><strong>Hourly Wages:</strong> Average Hourly Earnings of All Employees: Total Private in Seattle-Tacoma-Bellevue, WA (MSA), annual average (not seasonally adjusted), from the <a href="https://fred.stlouisfed.org/series/SMU53439000500000003A" target="_blank">Federal Reserve Bank of St. Louis (FRED)</a>.</li>
+    </ul>
+    <p>
+      From these data sources, three conversion metrics are calculated to provide context for affordability:
+    </p>
+    <ul>
+      <li><strong>CPI_Eggs_convertion:</strong> Calculated as hourly wage / egg price, indicating how many dozens of eggs a person can buy with one hour of work.</li>
+      <li><strong>Rent_convertion:</strong> Calculated as monthly rent / hourly wage, indicating how many hours of work are required to pay for one month of rent.</li>
+      <li><strong>Gasoline_convertion:</strong> Calculated as hourly wage / gasoline price, indicating how many gallons of gasoline one can purchase with one hour of work.</li>
+    </ul>
+    <p>
+      It's important to note that the egg price data reflects a national average, while the wage, rent, and gasoline data are specific to the Seattle-Tacoma-Bellevue metropolitan area.
+    </p>
+    <p>
+      The red dashed line in the chart represents the progression of hourly wages from 2015 to 2024. Users can hover over the line or the colored bars to reveal exact values for each category, enabling interactive exploration of real-world purchasing power.
+    </p>
+    <p>
+      The <strong>bottom three visualizations</strong> break out the individual time series for each component:
+    </p>
+    <ol>
+      <li><strong>Egg Price per Dozen:</strong> Shows the fluctuation of average egg prices across time for the U.S. national average.</li>
+      <li><strong>Gasoline Price per Gallon:</strong> Displays monthly retail gasoline price trends for Washington state.</li>
+      <li><strong>Rental Price:</strong> Depicts changes in monthly rent prices (Zillow Observed Rent Index) for Seattle.</li>
+    </ol>
+    <p>
+      Each of these charts supports hover interaction to view exact price values over time, allowing for a detailed understanding of temporal trends in essential living costs.
+    </p>
+  </div>    
 
 
   </section>
