@@ -4,344 +4,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Uncomment if you want your page to NOT be indexed by search engines: -->
-  <!-- <meta name="robots" content="none"> -->
+  <title>Seattle Under Inflation</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Feel free to change the title below -->
-  <title>Starter repository</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: sans-serif;
+      background-color: white;
+    }
 
-  <!-- Uncomment if using d3: -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script> -->
+    section {
+      height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
 
-  <!-- Uncomment if using Vega-Lite -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script> -->
+    .nav-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #bbb;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #000;
+    }
+  </style>
 </head>
 
-<!------------------------------------------------------------>
-<!-- You are free to modify this template however you want! -->
-<!------------------------------------------------------------>
-
 <body>
-  <header>
-    <h1><a href=".">Seattle Under Inflation: A Visual Analysis of Real Wages, Consumption, and Cost of Living</a></h1>
+  <div class="nav-dots">
+    <a href="#page1"><div class="dot" id="dot1"></div></a>
+    <a href="#page2"><div class="dot" id="dot2"></div></a>
+    <a href="#page3"><div class="dot" id="dot3"></div></a>
+    <a href="#page4"><div class="dot" id="dot4"></div></a>
+    <a href="#page5"><div class="dot" id="dot5"></div></a>
+    <a href="#page6"><div class="dot" id="dot6"></div></a>
+  </div>
 
-    <p>
-      <strong>Team Members</strong>: Chi Zhang, Vincent Chen
-    </p>
-  </header>
-
-  <section>
-    <h2>Introduction</h2>
-    <p>
-      Over the past two decades, rising inflation has reshaped the financial realities of everyday life — especially in rapidly growing urban centers like Seattle. While wage growth is frequently cited as a marker of economic prosperity, it often fails to keep pace with the soaring costs of essentials such as housing, transportation, and food. This growing disconnect between nominal income and actual purchasing power raises a critical question: <strong>Is life really more affordable today than it was twenty years ago?</strong>
-    </p>
-    
-    <p>
-      This project explores that question by visualizing how inflation has impacted the real purchasing power of Seattle residents. Using a combination of time-series charts, slope graphs, and interactive dashboards, we aim to bridge the gap between economic indicators and lived experiences.
-    </p>
-    
-    <h3>Project Goals and Structure</h3>
-    
-    <ol>
-      <li>
-        <strong>Section 1: Real Wages in Seattle</strong><br>
-        <em>Goal:</em> Reveal how wage trends in key industries have evolved when adjusted for inflation.<br>
-        <em>Approach:</em> Interactive line charts will display real vs. nominal wage growth across sectors.
-      </li>
-      <li>
-        <strong>Section 2: What is Driving the Cost of Living?</strong><br>
-        <em>Goal:</em> Break down which components - housing, food, transportation - are contributing most to cost increases.<br>
-        <em>Approach:</em> Stacked area charts and interactive category filters will highlight disparities in price growth.
-      </li>
-      <li>
-        <strong>Section 3: Affordability Over Time</strong><br>
-        <em>Goal:</em> Translate economic metrics into real-world meaning by showing what a paycheck can buy today compared to the past.<br>
-        <em>Approach:</em> Ratio-based visuals will illustrate how many eggs, gallons of gas, or square feet of rent an hour of work buys.
-      </li>
-      <li>
-        <strong>Section 4: Cross-City Comparison</strong><br>
-        <em>Goal:</em> Contextualize Seattle’s trends within the broader national landscape.<br>
-        <em>Approach:</em> Comparative visualizations with cities like NYC, SF, and LA will help assess whether Seattle’s affordability crisis is unique or part of a wider pattern.
-      </li>
-    </ol>
-    
-    <h3>Outcome</h3>
-    
-    <p>
-      By transforming complex datasets into clear, accessible visuals, this dashboard will help policymakers, researchers, and residents alike understand the evolving economics of living in Seattle. The result is not just a collection of charts — but a narrative about affordability and economic resilience in the face of inflation.
-    </p>
-    
+  <section id="page1">
+    <!-- Introduction content here -->
   </section>
 
-
-  <section>
+  <section id="page2">
     <h2>Section 1: Real Wages in Seattle</h2>
-
-    <h3>Seattle CPI through Years</h3>
     <div id="observablehq-cpiChart-0d189978"></div>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-    <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-    new Runtime().module(define, name => {
-      if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-0d189978"));
-    });
-    </script>
-
-  </section>
-    <h3>Mean Vs. Median</h3>
     <div id="observablehq-meanWageChart-0dffdf45"></div>
     <div id="observablehq-meidanWageChart-0dffdf45"></div>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-    new Runtime().module(define, name => {
-      if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-0dffdf45"));
-      if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-0dffdf45"));
-    });
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+      new Runtime().module(define, name => {
+        if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-0d189978"));
+      });
     </script>
-
-  <section>
-    <h2>Write-up: Seattle Wages and Cost of Living – Data Summary & Visualization Goals</h2>
-
-    <p>
-      In this section, we explore the evolving economic conditions for residents of Seattle from 2015 to 2024, focusing on two key indicators: wages and the Consumer Price Index (CPI).
-    </p>
-
-    <p>
-      The wage dataset includes both mean and median annual wages in Seattle, represented in two forms:
-    </p>
-
-    <ul>
-      <li><strong>Nominal wages</strong>, which reflect raw earnings without adjustment</li>
-      <li><strong>Real wages</strong>, which are adjusted for inflation using the Consumer Price Index (CPI), and thus represent the true purchasing power over time</li>
-    </ul>
-
-    <p>
-      By separating mean and median wages, we aim to capture changes in overall wage levels (mean) and shifts in wage distribution (median), which is especially important in a city like Seattle with rapidly rising housing costs and tech-driven income stratification.
-    </p>
-
-    <p>
-      The Seattle CPI dataset tracks the local cost of living each year, with 2014 as the baseline (CPI = 100). It provides a lens into how inflation and rising prices—especially in housing, transportation, and food—have shaped the real value of income in the region.
-    </p>
-
-    <h3>Visualization Objectives</h3>
-
-    <p>We present three interactive charts:</p>
-
-    <ul>
-      <li><strong>Mean Wage (Nominal vs. Real)</strong><br>
-        Shows how the purchasing power of average wages has changed over time, revealing stagnation or decline in real wages.
-      </li>
-      <li><strong>Median Wage (Nominal vs. Real)</strong><br>
-        Offers insight into the experience of the “typical” worker, and how income distribution may not have kept pace with inflation.
-      </li>
-      <li><strong>Seattle CPI Over Time</strong><br>
-        Illustrates how the cost of living has grown, providing essential context for interpreting wage trends.
-      </li>
-    </ul>
-
-    <p>
-      Each chart includes interactive tooltips and hover features to help users closely examine the temporal patterns and compare nominal vs. real trends.
-    </p>
+    <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+      new Runtime().module(define, name => {
+        if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-0dffdf45"));
+        if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-0dffdf45"));
+      });
+    </script>
   </section>
 
-
-  <section>
+  <section id="page3">
     <h2>Section 2: What is Driving the Cost of Living?</h2>
-
-
     <div id="observablehq-myCPIinteractiveChart-c80d0d45"></div>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
-    new Runtime().module(define, name => {
-      if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
-    });
-    </script>
-
-    <p>
-      This visualization explores the rising cost of living in the Seattle-Tacoma-Bellevue area by examining the Consumer Price Index (CPI) trends across major spending categories from 2015 to 2024. The data comes from the U.S. Bureau of Labor Statistics (BLS) (https://www.bls.gov/cpi/), specifically the CPI database filtered for the Seattle metropolitan area. Categories include Housing, Transportation, Food and Beverage, Medical, Recreation, and others — each reflecting essential components of a typical household's budget.
-    </p>
-
-    <p>
-      To effectively communicate the magnitude and variation of inflation across these components, a stacked area chart is used. This technique not only displays the cumulative impact of inflation over time but also distinguishes category-specific contributions to the overall index. 
-    </p>
-
-    <p>
-      The chart also features interactive highlighting. When users hover over or click on a legend category, the corresponding area is emphasized while others fade to the background. This interaction allows for focused exploration and better comparison of how individual categories have evolved.
-    </p>
-
-    <p>
-      Through this design, users gain both a macro and micro view of cost growth — providing context for how different inflation drivers may impact residents differently depending on their consumption patterns.
-    </p>
-
-  </section>
-
-
-  <section>
-      <h2>Section 3: Affordability Over Time</h2>
-        
-      <div id="observablehq-viewof-selected_category-f2c244f7"></div>
-        
-      <div id="observablehq-mySection3Viz-9b234192"></div>
-      <div id="observablehq-myEggInteractiveChart-e90a81eb"></div>
-      <div id="observablehq-myGasInteractiveChart-b278fe92"></div>
-      <div id="observablehq-myRentInteractiveChart-0b0a5795"></div>
-  </section>
-
-  <script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
       import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
-        
-      const runtime = new Runtime();
-        
-      runtime.module(define, name => {
-          // Map each component to its container
-          if (name === "viewof selected_category") {
-              return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
-          }
-          if (name === "mySection3Viz") {
-              return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
-          }
-          if (name === "myEggInteractiveChart") {
-              return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
-          }
-          if (name === "myGasInteractiveChart") {
-              return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
-          }
-          if (name === "myRentInteractiveChart") {
-              return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
-          }
-            
-          return false;
+      new Runtime().module(define, name => {
+        if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
       });
-  </script>
-
-  <div class="write-up">
-    <p>
-      The upper visualization presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs for Seattle-Tacoma-Bellevue residents. The visualization is derived from four primary datasets:
-    </p>
-    <ul>
-      <li><strong>Egg Prices:</strong> Annual average data for Grade A, large eggs (per dozen) in U.S. city average, collected from the <a href="https://www.bls.gov" target="_blank">U.S. Bureau of Labor Statistics</a>.</li>
-      <li><strong>Rental Prices:</strong> ZORI (Smoothed) All Homes Plus Multifamily Time Series data from <a href="https://www.zillow.com/research/data/" target="_blank">Zillow Research</a>.</li>
-      <li><strong>Gasoline Prices:</strong> Washington All Grades All Formulations Retail Gasoline Prices (Dollars per Gallon) from the <a href="https://www.eia.gov/dnav/pet/pet_pri_gnd_dcus_swa_m.htm" target="_blank">U.S. Energy Information Administration</a>.</li>
-      <li><strong>Hourly Wages:</strong> Average Hourly Earnings of All Employees: Total Private in Seattle-Tacoma-Bellevue, WA (MSA), annual average (not seasonally adjusted), from the <a href="https://fred.stlouisfed.org/series/SMU53426600500000003A" target="_blank">Federal Reserve Bank of St. Louis (FRED)</a>.</li>
-    </ul>
-    <p>
-      From these data sources, three conversion metrics are calculated to provide context for affordability:
-    </p>
-    <ul>
-      <li><strong>CPI_Eggs_convertion:</strong> Calculated as hourly wage / egg price, indicating how many dozens of eggs a person can buy with one hour of work.</li>
-      <li><strong>Rent_convertion:</strong> Calculated as monthly rent / hourly wage, indicating how many hours of work are required to pay for one month of rent.</li>
-      <li><strong>Gasoline_convertion:</strong> Calculated as hourly wage / gasoline price, indicating how many gallons of gasoline one can purchase with one hour of work.</li>
-    </ul>
-    <p>
-      It's important to note that the egg price data reflects a national average, while the wage, rent, and gasoline data are specific to the Seattle-Tacoma-Bellevue metropolitan area.
-    </p>
-    <p>
-      The red dashed line in the chart represents the progression of hourly wages from 2015 to 2024. Users can hover over the line or the colored bars to reveal exact values for each category, enabling interactive exploration of real-world purchasing power.
-    </p>
-    <p>
-      The <strong>bottom three visualizations</strong> break out the individual time series for each component:
-    </p>
-    <ol>
-      <li><strong>Egg Price per Dozen:</strong> Shows the fluctuation of average egg prices across time for the U.S. national average.</li>
-      <li><strong>Gasoline Price per Gallon:</strong> Displays monthly retail gasoline price trends for Washington state.</li>
-      <li><strong>Rental Price:</strong> Depicts changes in monthly rent prices (Zillow Observed Rent Index) for Seattle.</li>
-    </ol>
-    <p>
-      Each of these charts supports hover interaction to view exact price values over time, allowing for a detailed understanding of temporal trends in essential living costs.
-    </p>
-  </div>    
-
+    </script>
   </section>
 
-  <section>
+  <section id="page4">
+    <h2>Section 3: Affordability Over Time</h2>
+    <div id="observablehq-viewof-selected_category-f2c244f7"></div>
+    <div id="observablehq-mySection3Viz-9b234192"></div>
+    <div id="observablehq-myEggInteractiveChart-e90a81eb"></div>
+    <div id="observablehq-myGasInteractiveChart-b278fe92"></div>
+    <div id="observablehq-myRentInteractiveChart-0b0a5795"></div>
+    <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+      const runtime = new Runtime();
+      runtime.module(define, name => {
+        if (name === "viewof selected_category") return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+        if (name === "mySection3Viz") return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+        if (name === "myEggInteractiveChart") return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+        if (name === "myGasInteractiveChart") return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
+        if (name === "myRentInteractiveChart") return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
+      });
+    </script>
+  </section>
+
+  <section id="page5">
     <h2>Section 4: Cross-City Comparison</h2>
-    <h3>Cross-City CPI Comparison</h3>
     <div id="observablehq-CPI_muti-6f2999bb"></div>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-    <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-    new Runtime().module(define, name => {
-      if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
-    });
-    </script>
-
-    <h3>Cross-City Mean Wage Comparison</h3>
     <div id="observablehq-multi_meanWage-4fd0aa6f"></div>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-    new Runtime().module(define, name => {
-      if (name === "multi_meanWage") return new Inspector(document.querySelector("#observablehq-multi_meanWage-4fd0aa6f"));
-    });
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+      new Runtime().module(define, name => {
+        if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
+      });
     </script>
-
+    <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+      new Runtime().module(define, name => {
+        if (name === "multi_meanWage") return new Inspector(document.querySelector("#observablehq-multi_meanWage-4fd0aa6f"));
+      });
+    </script>
   </section>
-  
-  <section>
-    <h3>Write-up: Wage Growth vs. Cost of Living – A Multi-City Comparison</h3>
-  
-    <p>
-      To contextualize Seattle’s wage and cost of living trends, we compare them against three major metropolitan areas: <strong>San Francisco</strong>, <strong>New York City</strong>, and <strong>Chicago</strong>. These cities are selected based on their population size, economic impact, and high urban living costs.
-    </p>
-  
-    <p>
-      The first chart shows each city's <strong>Consumer Price Index (CPI)</strong> from 2015 to 2024, reflecting how the cost of living has evolved. San Francisco and Seattle exhibit the most dramatic CPI increases, indicating substantial inflationary pressure in these areas. Meanwhile, Chicago maintains the slowest growth in living costs throughout the period.
-    </p>
-  
-    <p>
-      The second chart tracks <strong>annual mean wages</strong> over the same period. San Francisco consistently leads in nominal income levels, while Seattle experiences significant wage growth, especially after 2020. Notably, Chicago remains the lowest in both wage and CPI, suggesting relatively stable affordability.
-    </p>
-  
-    <h3>Key Insights</h3>
-    <ul>
-      <li>Seattle’s wage growth appears to <strong>keep pace with its rising CPI</strong>, suggesting partial income-cost alignment.</li>
-      <li>San Francisco shows both the <strong>highest wage levels and cost of living</strong>, raising questions about net affordability.</li>
-      <li>New York maintains a moderate position in both metrics, showing stability rather than volatility.</li>
-      <li>Chicago continues to offer the <strong>lowest cost of living</strong> with steady wage growth, making it potentially more affordable overall.</li>
-    </ul>
-  
-    <h4>Further Improvements</h4>
-    <ul>
-      <li><strong>Inflation-adjusted wages:</strong> Incorporate real wages using CPI normalization to show purchasing power over time.</li>
-      <li><strong>Normalized CPI chart:</strong> Use a stacked or normalized chart to emphasize percentage growth rather than absolute values.</li>
-      <li><strong>Affordability ratio:</strong> Add a third chart showing the ratio of Wage / CPI to measure relative affordability across cities.</li>
-      <li><strong>User interactivity:</strong> Add dropdown filters or city toggles to help viewers focus on specific city comparisons.</li>
-    </ul>
-  
-    <p>
-      Together, these comparisons help users better understand not just how much people earn in different cities, but also how far those earnings actually go when accounting for the cost of living.
-    </p>
+
+  <section id="page6">
+    <!-- Conclusion + Footer -->
   </section>
-  
 
+  <script>
+    const sections = document.querySelectorAll('section');
+    const dots = document.querySelectorAll('.dot');
 
+    function updateActiveDot() {
+      let index = sections.length;
+      while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
 
-  <footer>
-    <p>
-      <a href="https://gitlab.cs.washington.edu/cse512/25sp/fp/seattle-under-inflation-a-visual-analysis-of-real-wages-consumption-and-cost-of-living">Repository</a>
-      <br>
-      <a href="https://courses.cs.washington.edu/courses/cse512/25sp/">CSE 512 Data Visualization</a>
-      <br>
-      <a href="https://www.washington.edu">University of Washington</a>
-    </p>
-  </footer>
-
-  <script src="main.js"></script>
+    updateActiveDot();
+    window.addEventListener('scroll', updateActiveDot);
+  </script>
 </body>
-
 </html>
