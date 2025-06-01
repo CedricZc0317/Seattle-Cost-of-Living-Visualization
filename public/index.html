@@ -243,6 +243,99 @@
     });
     </script>
 
+<head>
+  <title>Affordability Over Time - Interactive Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+</head>
+<body>
+  <section>
+      <h2>Section 3: Affordability Over Time</h2>
+        
+      <!-- Category Selection -->
+      <div id="observablehq-viewof-selected_category-f2c244f7"></div>
+        
+      <!-- All Visualizations from the Single Notebook -->
+      <div id="observablehq-mySection3Viz-9b234192"></div>
+      <div id="observablehq-myEggInteractiveChart-e90a81eb"></div>
+      <div id="observablehq-myGasInteractiveChart-b278fe92"></div>
+      <div id="observablehq-myRentInteractiveChart-0b0a5795"></div>
+  </section>
+
+  <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+        
+      // Create ONE runtime for the entire notebook
+      const runtime = new Runtime();
+        
+      // Load the single notebook and specify which elements to display and where
+      runtime.module(define, name => {
+          // Map each component to its container
+          if (name === "viewof selected_category") {
+              return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+          }
+          if (name === "mySection3Viz") {
+              return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+          }
+          if (name === "myEggInteractiveChart") {
+              return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+          }
+          if (name === "myGasInteractiveChart") {
+              return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-a12b34cd"));
+          }
+          if (name === "myRentInteractiveChart") {
+              return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-d56e78fg"));
+          }
+            
+          // Return true for any other variables you want to keep running in the background
+          // but don't want to display (like data processing variables)
+          return false;
+      });
+  </script>
+
+  <style>
+      section {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+          font-family: system-ui, sans-serif;
+      }
+        
+      h2 {
+          color: #333;
+          border-bottom: 2px solid #ddd;
+          padding-bottom: 10px;
+      }
+        
+       /* Style the selector container */
+      #observablehq-viewof-selected_category-f2c244f7 {
+          margin: 20px 0;
+          padding: 15px;
+          background: #f8f9fa;
+          border-radius: 8px;
+          border: 1px solid #e9ecef;
+      }
+        
+      /* Style visualization containers */
+      [id^="observablehq-my"] {
+          margin: 20px 0;
+          padding: 15px;
+          border: 1px solid #e9ecef;
+          border-radius: 8px;
+          background: white;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+        
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+          section {
+              padding: 10px;
+          }
+      }
+  </style>
+</body>
+</html>
+
   <div class="write-up">
     <p>
       The upper visualization presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs for Seattle-Tacoma-Bellevue residents. The visualization is derived from four primary datasets:
