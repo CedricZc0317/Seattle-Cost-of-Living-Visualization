@@ -485,16 +485,16 @@
           </div>
 
           <h3>Mean Vs. Median Wages</h3>
-          <div class="chart-container">
-            <div class="chart-row">
-              <div id="observablehq-meanWageChart-0dffdf45" class="chart-box">
-                <div class="loading-message">Loading Mean Wage Chart...</div>
-              </div>
-              <div id="observablehq-meidanWageChart-0dffdf45" class="chart-box">
-                <div class="loading-message">Loading Median Wage Chart...</div>
-              </div>
-            </div>
-          </div>
+          <div id="observablehq-Wage_compare-8b9b77aa"></div>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+          <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@177.js?v=4";
+          new Runtime().module(define, name => {
+            if (name === "Wage_compare") return new Inspector(document.querySelector("#observablehq-Wage_compare-8b9b77aa"));
+          });
+          </script>
 
           <h2>Write-up: Seattle Wages and Cost of Living</h2>
 
