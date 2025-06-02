@@ -17,7 +17,6 @@
       color: #333;
       background-color: #f8f9fa;
       overflow-x: hidden;
-      scroll-behavior: smooth;
       line-height: 1.6;
     }
     
@@ -229,59 +228,57 @@
       z-index: -1;
     }
     
-    /* Section 3 specific styles - Modified for 2x2 grid */
+    /* Section 3 specific styles */
     .affordability-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: auto 1fr;
       gap: 20px;
-      height: calc(100% - 80px);
-      margin-top: 20px;
+      height: calc(100% - 40px);
     }
     
-    .grid-item {
+    .category-selector-container {
+      grid-column: 1 / span 1;
+      grid-row: 1;
       padding: 15px;
-      border-radius: 8px;
-      background: #f8f9fa;
       display: flex;
       flex-direction: column;
-      min-height: 250px;
     }
     
-    .grid-item h3 {
+    .main-viz-container {
+      grid-column: 1 / span 1;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+    }
+    
+    .price-charts-column {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 2;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .price-chart {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .price-chart h3 {
       margin-top: 0;
-      margin-bottom: 15px;
       padding-bottom: 10px;
       color: #2c3e50;
       font-size: 1.2rem;
-      border-bottom: 2px solid #e9ecef;
     }
     
-    .grid-item-content {
+    .price-chart-content {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    
-    .category-selector {
-      grid-column: 1;
-      grid-row: 1;
-    }
-    
-    .main-viz {
-      grid-column: 2;
-      grid-row: 1;
-    }
-    
-    .gas-chart {
-      grid-column: 1;
-      grid-row: 2;
-    }
-    
-    .rent-chart {
-      grid-column: 2;
-      grid-row: 2;
     }
     
     .write-up {
@@ -340,28 +337,18 @@
     @media (max-width: 1024px) {
       .affordability-container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        height: auto;
+        grid-template-rows: auto auto auto;
       }
       
-      .category-selector {
-        grid-column: 1;
-        grid-row: 1;
-      }
-      
-      .main-viz {
-        grid-column: 1;
-        grid-row: 2;
-      }
-      
-      .gas-chart {
+      .price-charts-column {
         grid-column: 1;
         grid-row: 3;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr;
       }
       
-      .rent-chart {
-        grid-column: 1;
-        grid-row: 4;
+      .price-chart {
+        min-height: 250px;
       }
       
       h1 {
@@ -395,6 +382,10 @@
         flex-direction: column;
       }
       
+      .price-charts-column {
+        grid-template-columns: 1fr;
+      }
+      
       .conversion-metrics {
         flex-direction: column;
       }
@@ -418,7 +409,42 @@
         font-size: 0.85rem;
       }
     }
+    
+    /* Visualization specific styling */
+    .observablehq {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .observablehq svg {
+      max-width: 100%;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+    
+    footer a {
+      color: #3498db;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 </head>
 <body>
   <!-- Navigation Dots -->
@@ -597,52 +623,47 @@
           <h2>Section 3: Affordability Over Time</h2>
           
           <div class="affordability-container">
-            <!-- Category Selector (Top Left) -->
-            <div class="grid-item category-selector">
+            <!-- Category Selector and Main Affordability Chart (Left Column) -->
+            <div class="category-selector-container">
               <h3><i class="fas fa-filter"></i> Select Category</h3>
-              <div class="grid-item-content">
-                <div id="observablehq-viewof-selected_category-f2c244f7">
-                  <div class="loading-message">Loading Category Selector...</div>
-                </div>
+              <div id="observablehq-viewof-selected_category-f2c244f7">
+                <div class="loading-message">Loading Category Selector...</div>
               </div>
             </div>
             
-            <!-- Egg Chart (Top Right) -->
-            <div class="grid-item">
-              <h3><i class="fas fa-egg"></i> Eggs Price per Dozen</h3>
-              <div class="grid-item-content">
-                <div id="observablehq-myEggInteractiveChart-e90a81eb">
+            <!-- Main Affordability Chart -->
+            <div class="main-viz-container">
+              <h3><i class="fas fa-exchange-alt"></i> Hourly Wage Conversion Rate</h3>
+              <div id="observablehq-mySection3Viz-9b234192">
+                <div class="loading-message">Loading Affordability Chart...</div>
+              </div>
+            </div>
+            
+            <!-- Price Charts Column (Right Side) -->
+            <div class="price-charts-column">
+              <!-- Top Right: Eggs Price Chart -->
+              <div class="price-chart">
+                <h3><i class="fas fa-egg"></i> Eggs Price per Dozen</h3>
+                <div class="price-chart-content" id="observablehq-myEggInteractiveChart-e90a81eb">
                   <div class="loading-message">Loading Egg Price Chart...</div>
                 </div>
               </div>
-            </div>
-            
-            <!-- Gas Chart (Bottom Left) -->
-            <div class="grid-item gas-chart">
-              <h3><i class="fas fa-gas-pump"></i> Gasoline Price per Gallon</h3>
-              <div class="grid-item-content">
-                <div id="observablehq-myGasInteractiveChart-b278fe92">
-                  <div class="loading-message">Loading Gas Price Chart...</div>
+              
+              <!-- Bottom Right: Gas and Rent Charts -->
+              <div class="price-chart-row">
+                <div class="price-chart">
+                  <h3><i class="fas fa-gas-pump"></i> Gasoline Price per Gallon</h3>
+                  <div class="price-chart-content" id="observablehq-myGasInteractiveChart-b278fe92">
+                    <div class="loading-message">Loading Gas Price Chart...</div>
+                  </div>
+                </div>
+                <div class="price-chart">
+                  <h3><i class="fas fa-home"></i> Rental Price</h3>
+                  <div class="price-chart-content" id="observablehq-myRentInteractiveChart-0b0a5795">
+                    <div class="loading-message">Loading Rent Price Chart...</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <!-- Rent Chart (Bottom Right) -->
-            <div class="grid-item rent-chart">
-              <h3><i class="fas fa-home"></i> Rental Price</h3>
-              <div class="grid-item-content">
-                <div id="observablehq-myRentInteractiveChart-0b0a5795">
-                  <div class="loading-message">Loading Rent Price Chart...</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Main Affordability Chart (Below the grid) -->
-          <div style="margin-top: 20px;">
-            <h3><i class="fas fa-exchange-alt"></i> Hourly Wage Conversion Rate</h3>
-            <div id="observablehq-mySection3Viz-9b234192" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
-              <div class="loading-message">Loading Affordability Chart...</div>
             </div>
           </div>
 
@@ -668,7 +689,7 @@
             </div>
             
             <p>
-              The grid visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics shown in the main chart.
+              The right column visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics shown in the main chart.
             </p>
           </div>
         </section>
@@ -762,8 +783,6 @@
   </div>
 
   <!-- ObservableHQ Scripts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-  
   <!-- Section 1: CPI Chart -->
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
@@ -785,4 +804,143 @@
   
   <!-- Section 2: CPI Interactive Chart -->
   <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observableh
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
+    });
+  </script>
+  
+  <!-- Section 3: Affordability Charts -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+    const runtime = new Runtime();
+    runtime.module(define, name => {
+      if (name === "viewof selected_category") return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+      if (name === "mySection3Viz") return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+      if (name === "myEggInteractiveChart") return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+      if (name === "myGasInteractiveChart") return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
+      if (name === "myRentInteractiveChart") return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
+    });
+  </script>
+  
+  <!-- Section 4: Cross-City Charts -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define, name => {
+      if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
+    });
+    
+    import define2 from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define2, name => {
+      if (name === "multi_meanWage") return new Inspector(document.querySelector("#observablehq-multi_meanWage-4fd0aa6f"));
+    });
+  </script>
+  
+  <!-- Navigation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollContainer = document.getElementById('scrollContainer');
+      const pages = document.querySelectorAll('.page');
+      const dots = document.querySelectorAll('.dot');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentPage = 1;
+      let isScrolling = false;
+      let scrollTimeout;
+      
+      // Function to update page and navigation
+      function updatePage(newPage) {
+        // Validate page number
+        if (newPage < 1) newPage = 1;
+        if (newPage > pages.length) newPage = pages.length;
+        
+        // Update current page
+        currentPage = newPage;
+        
+        // Scroll to the new page
+        pages[newPage - 1].scrollIntoView({ behavior: 'smooth' });
+        
+        // Update dot states
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        document.querySelector(`.dot[data-page="${currentPage}"]`).classList.add('active');
+        
+        // Update button states
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === pages.length;
+      }
+      
+      // Dot click event
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          const pageNum = parseInt(this.getAttribute('data-page'));
+          updatePage(pageNum);
+        });
+      });
+      
+      // Previous button event
+      prevBtn.addEventListener('click', function() {
+        updatePage(currentPage - 1);
+      });
+      
+      // Next button event
+      nextBtn.addEventListener('click', function() {
+        updatePage(currentPage + 1);
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          updatePage(currentPage - 1);
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          updatePage(currentPage + 1);
+        }
+      });
+      
+      // Scroll event handler
+      scrollContainer.addEventListener('scroll', function() {
+        // Prevent multiple triggers
+        if (isScrolling) return;
+        isScrolling = true;
+        
+        // Clear any existing timeout
+        clearTimeout(scrollTimeout);
+        
+        // Get the current scroll position
+        const scrollPosition = scrollContainer.scrollTop;
+        const pageHeight = window.innerHeight;
+        
+        // Calculate the current page index
+        const newPage = Math.round(scrollPosition / pageHeight) + 1;
+        
+        // Update the current page if it has changed
+        if (newPage !== currentPage && newPage >= 1 && newPage <= pages.length) {
+          currentPage = newPage;
+          
+          // Update dot states
+          dots.forEach(dot => {
+            dot.classList.remove('active');
+          });
+          document.querySelector(`.dot[data-page="${currentPage}"]`).classList.add('active');
+          
+          // Update button states
+          prevBtn.disabled = currentPage === 1;
+          nextBtn.disabled = currentPage === pages.length;
+        }
+        
+        // Reset scrolling flag after a short delay
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
+        }, 100);
+      });
+      
+      // Initialize the page
+      updatePage(1);
+    });
+  </script>
+</body>
+</html>
