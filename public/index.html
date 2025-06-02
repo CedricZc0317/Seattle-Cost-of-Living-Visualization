@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seattle Under Inflation: Visual Analysis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -14,8 +15,8 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
-      background-color: white;
-      overflow: hidden;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
     
@@ -43,9 +44,10 @@
     }
     
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       margin-bottom: 10px;
       color: #2c3e50;
+      font-weight: 700;
     }
     
     h2 {
@@ -54,17 +56,20 @@
       color: #2980b9;
       padding-bottom: 8px;
       border-bottom: 1px solid #e0e0e0;
+      font-weight: 600;
     }
     
     h3 {
       font-size: 1.4rem;
       margin: 20px 0 12px;
       color: #3498db;
+      font-weight: 600;
     }
     
     p {
       line-height: 1.6;
       margin-bottom: 15px;
+      color: #444;
     }
     
     ol, ul {
@@ -74,6 +79,7 @@
     li {
       margin-bottom: 10px;
       line-height: 1.5;
+      color: #444;
     }
     
     .nav-dots {
@@ -86,17 +92,19 @@
     
     .dot {
       display: block;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background-color: #ccc;
       margin: 15px 0;
       cursor: pointer;
       transition: all 0.3s ease;
+      border: 2px solid white;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
     
     .dot.active {
-      background-color: #2c3e50;
+      background-color: #2980b9;
       transform: scale(1.3);
     }
     
@@ -118,17 +126,23 @@
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .nav-btn:hover {
       background-color: #2980b9;
       transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     .nav-btn:disabled {
       background-color: #bdc3c7;
       cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
     
     .content-container {
@@ -136,7 +150,7 @@
       margin: 0 auto;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     
@@ -171,6 +185,7 @@
       align-items: center;
       justify-content: center;
       padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     
     .chart-box p {
@@ -190,10 +205,12 @@
       color: #3498db;
       text-decoration: none;
       margin: 0 10px;
+      transition: all 0.3s ease;
     }
     
     footer a:hover {
       text-decoration: underline;
+      color: #2980b9;
     }
     
     .scroll-indicator {
@@ -270,45 +287,218 @@
       }
     }
     
-    /* NEW: Section 3 specific styles */
+    /* Section 3 specific styles */
     .affordability-container {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1.5fr 1fr;
+      grid-template-rows: auto 1fr;
       gap: 20px;
+      height: calc(100% - 40px);
     }
     
     .category-selector-container {
       background: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid #e9ecef;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      grid-column: 1;
+      grid-row: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .category-selector-container h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-size: 1.3rem;
     }
     
     .main-viz-container {
-      min-height: 400px;
-      background: #f0f8ff;
-      border-radius: 8px;
-      padding: 15px;
+      background: linear-gradient(to bottom right, #f0f8ff, #e6f4ff);
+      border-radius: 10px;
+      padding: 20px;
+      grid-column: 1;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border: 1px solid #d4e6f1;
     }
     
-    .price-charts-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .main-viz-container h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-size: 1.3rem;
+    }
+    
+    .price-charts-column {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      display: flex;
+      flex-direction: column;
       gap: 20px;
-      margin-top: 20px;
     }
     
     .price-chart {
-      background: #f0f8ff;
+      background: linear-gradient(to bottom right, #f0f8ff, #e6f4ff);
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border: 1px solid #d4e6f1;
+    }
+    
+    .price-chart h3 {
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #d4e6f1;
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+    
+    .price-chart-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .write-up {
+      margin-top: 25px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .write-up h3 {
+      margin-top: 0;
+      color: #2c3e50;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    
+    .conversion-metrics {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    
+    .metric-card {
+      flex: 1;
+      min-width: 200px;
+      padding: 20px;
+      background: #e3f2fd;
       border-radius: 8px;
-      min-height: 300px;
-      padding: 15px;
+      border-left: 4px solid #2980b9;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .metric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .metric-card h4 {
+      margin: 0 0 12px 0;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .metric-card h4 i {
+      color: #3498db;
+    }
+    
+    .metric-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
     
     @media (max-width: 1024px) {
-      .price-charts-container {
+      .affordability-container {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
       }
+      
+      .price-charts-column {
+        grid-column: 1;
+        grid-row: 3;
+        flex-direction: row;
+      }
+      
+      .price-chart {
+        min-height: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .price-charts-column {
+        flex-direction: column;
+      }
+      
+      .conversion-metrics {
+        flex-direction: column;
+      }
+    }
+    
+    /* Section 3 header adjustments */
+    #page4 h2 {
+      margin-top: 0;
+      padding-bottom: 15px;
+    }
+    
+    /* Team header styling */
+    .team-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #e3f2fd;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    
+    /* Visualization title styling */
+    .viz-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .viz-title i {
+      color: #3498db;
+      font-size: 1.3rem;
+    }
+    
+    /* Loading message styling */
+    .loading-message {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #3498db;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
   </style>
 </head>
@@ -325,8 +515,8 @@
 
   <!-- Navigation Buttons -->
   <div class="navigation-buttons">
-    <button class="nav-btn" id="prevBtn" disabled>Previous</button>
-    <button class="nav-btn" id="nextBtn">Next</button>
+    <button class="nav-btn" id="prevBtn" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+    <button class="nav-btn" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
   </div>
 
   <!-- Scroll Container -->
@@ -342,7 +532,10 @@
       <div class="content-container">
         <header>
           <h1>Seattle Under Inflation: A Visual Analysis of Real Wages, Consumption, and Cost of Living</h1>
-          <p><strong>Team Members</strong>: Chi Zhang, Vincent Chen</p>
+          <div class="team-header">
+            <div class="team-member"><i class="fas fa-user"></i> Chi Zhang</div>
+            <div class="team-member"><i class="fas fa-user"></i> Vincent Chen</div>
+          </div>
         </header>
 
         <section>
@@ -399,40 +592,29 @@
         <section>
           <h2>Section 1: Real Wages in Seattle</h2>
 
-          <h3>Seattle CPI through Years</h3>
+          <div class="viz-title">
+            <i class="fas fa-chart-line"></i>
+            <h3>Seattle CPI through Years</h3>
+          </div>
           <div class="chart-container">
             <div id="observablehq-cpiChart-0d189978" class="chart-box">
-              <p>Loading CPI Chart...</p>
+              <div class="loading-message">Loading CPI Chart...</div>
             </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-              new Runtime().module(define, name => {
-                if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-0d189978"));
-              });
-            </script>
           </div>
 
-          <h3>Mean Vs. Median</h3>
+          <div class="viz-title">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Mean Vs. Median Wages</h3>
+          </div>
           <div class="chart-container">
-            <div class="chart-wrapper">
+            <div class="chart-row">
               <div id="observablehq-meanWageChart-0dffdf45" class="chart-box">
-                <p>Loading Mean Wage Chart...</p>
+                <div class="loading-message">Loading Mean Wage Chart...</div>
               </div>
               <div id="observablehq-meidanWageChart-0dffdf45" class="chart-box">
-                <p>Loading Median Wage Chart...</p>
+                <div class="loading-message">Loading Median Wage Chart...</div>
               </div>
             </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-              new Runtime().module(define, name => {
-                if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-0dffdf45"));
-                if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-0dffdf45"));
-              });
-            </script>
           </div>
 
           <h2>Write-up: Seattle Wages and Cost of Living</h2>
@@ -469,20 +651,15 @@
         </header>
 
         <section>
-          <h2>Section 2: What is Driving the Cost of Living?</h2>
+          <div class="viz-title">
+            <i class="fas fa-layer-group"></i>
+            <h2>Section 2: What is Driving the Cost of Living?</h2>
+          </div>
           
           <div class="chart-container">
             <div id="observablehq-myCPIinteractiveChart-c80d0d45" class="chart-box">
-              <p>Loading CPI Components Chart...</p>
+              <div class="loading-message">Loading CPI Components Chart...</div>
             </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-              import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
-              new Runtime().module(define, name => {
-                if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
-              });
-            </script>
           </div>
 
           <p>
@@ -500,7 +677,7 @@
       </div>
     </div>
 
-    <!-- Page 4: Section 3 - IMPROVED LAYOUT -->
+    <!-- Page 4: Section 3 -->
     <div id="page4" class="page">
       <div class="content-container">
         <header>
@@ -508,80 +685,74 @@
         </header>
 
         <section>
-          <h2>Section 3: Affordability Over Time</h2>
+          <div class="viz-title">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Section 3: Affordability Over Time</h2>
+          </div>
           
           <div class="affordability-container">
-            <!-- Category Selector -->
+            <!-- Category Selector (Top Left) -->
             <div class="category-selector-container">
+              <h3><i class="fas fa-filter"></i> Select Category</h3>
               <div id="observablehq-viewof-selected_category-f2c244f7">
-                <p>Loading Category Selector...</p>
+                <div class="loading-message">Loading Category Selector...</div>
               </div>
             </div>
             
-            <!-- Main Affordability Chart -->
+            <!-- Main Affordability Chart (Bottom Left) -->
             <div class="main-viz-container">
+              <h3><i class="fas fa-exchange-alt"></i> Hourly Wage Conversion Rate</h3>
               <div id="observablehq-mySection3Viz-9b234192">
-                <p>Loading Affordability Chart...</p>
+                <div class="loading-message">Loading Affordability Chart...</div>
               </div>
             </div>
             
-            <!-- Price Charts - Now in a single row -->
-            <div class="price-charts-container">
-              <div class="price-chart" id="observablehq-myEggInteractiveChart-e90a81eb">
-                <h3>Egg Price per Dozen</h3>
-                <p>Loading Egg Price Chart...</p>
+            <!-- Price Charts Column (Right Side) -->
+            <div class="price-charts-column">
+              <div class="price-chart">
+                <h3><i class="fas fa-egg"></i> Eggs Price per Dozen</h3>
+                <div class="price-chart-content" id="observablehq-myEggInteractiveChart-e90a81eb">
+                  <div class="loading-message">Loading Egg Price Chart...</div>
+                </div>
               </div>
-              <div class="price-chart" id="observablehq-myGasInteractiveChart-b278fe92">
-                <h3>Gasoline Price per Gallon</h3>
-                <p>Loading Gas Price Chart...</p>
+              <div class="price-chart">
+                <h3><i class="fas fa-gas-pump"></i> Gasoline Price per Gallon</h3>
+                <div class="price-chart-content" id="observablehq-myGasInteractiveChart-b278fe92">
+                  <div class="loading-message">Loading Gas Price Chart...</div>
+                </div>
               </div>
-              <div class="price-chart" id="observablehq-myRentInteractiveChart-0b0a5795">
-                <h3>Rental Price</h3>
-                <p>Loading Rent Price Chart...</p>
+              <div class="price-chart">
+                <h3><i class="fas fa-home"></i> Rental Price</h3>
+                <div class="price-chart-content" id="observablehq-myRentInteractiveChart-0b0a5795">
+                  <div class="loading-message">Loading Rent Price Chart...</div>
+                </div>
               </div>
             </div>
-            
-            <!-- Visualization scripts -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-              import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
-              const runtime = new Runtime();
-              runtime.module(define, name => {
-                if (name === "viewof selected_category") {
-                  return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
-                }
-                if (name === "mySection3Viz") {
-                  return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
-                }
-                if (name === "myEggInteractiveChart") {
-                  return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
-                }
-                if (name === "myGasInteractiveChart") {
-                  return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
-                }
-                if (name === "myRentInteractiveChart") {
-                  return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
-                }
-                return false;
-              });
-            </script>
           </div>
 
           <div class="write-up">
+            <h3><i class="fas fa-lightbulb"></i> Understanding Affordability Metrics</h3>
             <p>
               The visualization above presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs.
             </p>
+            
+            <div class="conversion-metrics">
+              <div class="metric-card">
+                <h4><i class="fas fa-egg"></i> Eggs Conversion</h4>
+                <p><strong>CPI_Eggs_convertion:</strong> How many dozens of eggs a person can buy with one hour of work.</p>
+              </div>
+              <div class="metric-card">
+                <h4><i class="fas fa-home"></i> Rent Conversion</h4>
+                <p><strong>Rent_convertion:</strong> How many hours of work are required to pay for one month of rent.</p>
+              </div>
+              <div class="metric-card">
+                <h4><i class="fas fa-gas-pump"></i> Gasoline Conversion</h4>
+                <p><strong>Gasoline_convertion:</strong> How many gallons of gasoline one can purchase with one hour of work.</p>
+              </div>
+            </div>
+            
             <p>
-              From these data sources, three conversion metrics are calculated to provide context for affordability:
-            </p>
-            <ul>
-              <li><strong>CPI_Eggs_convertion:</strong> How many dozens of eggs a person can buy with one hour of work.</li>
-              <li><strong>Rent_convertion:</strong> How many hours of work are required to pay for one month of rent.</li>
-              <li><strong>Gasoline_convertion:</strong> How many gallons of gasoline one can purchase with one hour of work.</li>
-            </ul>
-            <p>
-              The bottom three visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics.
+              The right column visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics shown in the main chart.
             </p>
           </div>
         </section>
@@ -596,45 +767,40 @@
         </header>
 
         <section>
-          <h2>Section 4: Cross-City Comparison</h2>
+          <div class="viz-title">
+            <i class="fas fa-city"></i>
+            <h2>Section 4: Cross-City Comparison</h2>
+          </div>
           
-          <h3>Cross-City CPI Comparison</h3>
+          <div class="viz-title">
+            <i class="fas fa-chart-line"></i>
+            <h3>Cross-City CPI Comparison</h3>
+          </div>
           <div class="chart-container">
             <div id="observablehq-CPI_muti-6f2999bb" class="chart-box">
-              <p>Loading CPI Comparison Chart...</p>
+              <div class="loading-message">Loading CPI Comparison Chart...</div>
             </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-              new Runtime().module(define, name => {
-                if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
-              });
-            </script>
           </div>
 
-          <h3>Cross-City Mean Wage Comparison</h3>
+          <div class="viz-title">
+            <i class="fas fa-money-bill-wave"></i>
+            <h3>Cross-City Mean Wage Comparison</h3>
+          </div>
           <div class="chart-container">
             <div id="observablehq-multi_meanWage-4fd0aa6f" class="chart-box">
-              <p>Loading Wage Comparison Chart...</p>
+              <div class="loading-message">Loading Wage Comparison Chart...</div>
             </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-              import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-              import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
-              new Runtime().module(define, name => {
-                if (name === "multi_meanWage") return new Inspector(document.querySelector("#observablehq-multi_meanWage-4fd0aa6f"));
-              });
-            </script>
           </div>
 
-          <h3>Key Insights</h3>
-          <ul>
-            <li>Seattle's wage growth appears to <strong>keep pace with its rising CPI</strong>, suggesting partial income-cost alignment.</li>
-            <li>San Francisco shows both the <strong>highest wage levels and cost of living</strong>, raising questions about net affordability.</li>
-            <li>New York maintains a moderate position in both metrics, showing stability rather than volatility.</li>
-            <li>Chicago continues to offer the <strong>lowest cost of living</strong> with steady wage growth.</li>
-          </ul>
+          <div class="write-up">
+            <h3><i class="fas fa-key"></i> Key Insights</h3>
+            <ul>
+              <li><i class="fas fa-check-circle" style="color: #27ae60;"></i> Seattle's wage growth appears to <strong>keep pace with its rising CPI</strong>, suggesting partial income-cost alignment.</li>
+              <li><i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i> San Francisco shows both the <strong>highest wage levels and cost of living</strong>, raising questions about net affordability.</li>
+              <li><i class="fas fa-chart-line" style="color: #3498db;"></i> New York maintains a moderate position in both metrics, showing stability rather than volatility.</li>
+              <li><i class="fas fa-thumbs-up" style="color: #2ecc71;"></i> Chicago continues to offer the <strong>lowest cost of living</strong> with steady wage growth.</li>
+            </ul>
+          </div>
         </section>
       </div>
     </div>
@@ -647,7 +813,7 @@
         </header>
 
         <section>
-          <h2>Conclusion</h2>
+          <h2><i class="fas fa-check-circle"></i> Conclusion</h2>
           
           <p>
             Our analysis of Seattle's economic landscape over the past decade reveals a complex picture of wage growth, inflation, and affordability. While nominal wages have increased across most sectors, our visualizations demonstrate that these gains are substantially eroded when adjusted for the rapidly rising cost of living, particularly in housing and essential goods.
@@ -657,17 +823,17 @@
             The data shows that Seattle's inflation rate has consistently outpaced the national average, with housing costs being the primary driver. This has resulted in a significant decline in real purchasing power for residents, especially those in median-wage positions.
           </p>
           
-          <h3>Policy Implications</h3>
+          <h3><i class="fas fa-clipboard-list"></i> Policy Implications</h3>
           
           <p>
             These findings have significant implications for policymakers:
           </p>
           
           <ul>
-            <li><strong>Housing affordability</strong> must be addressed as the primary driver of cost-of-living increases</li>
-            <li>Wage growth policies should focus on <strong>median-income workers</strong></li>
-            <li>Transportation and food costs require targeted interventions</li>
-            <li>Regional economic development should consider <strong>quality of life metrics</strong></li>
+            <li><i class="fas fa-home" style="color: #e74c3c;"></i> <strong>Housing affordability</strong> must be addressed as the primary driver of cost-of-living increases.</li>
+            <li><i class="fas fa-money-bill-wave" style="color: #27ae60;"></i> Wage growth policies should focus on <strong>median-income workers</strong>.</li>
+            <li><i class="fas fa-bus" style="color: #3498db;"></i> Transportation and food costs require targeted interventions.</li>
+            <li><i class="fas fa-balance-scale" style="color: #9b59b6;"></i> Regional economic development should consider <strong>quality of life metrics</strong>.</li>
           </ul>
           
           <p>
@@ -677,17 +843,77 @@
         
         <footer>
           <p>
-            <a href="https://gitlab.cs.washington.edu/cse512/25sp/fp/seattle-under-inflation-a-visual-analysis-of-real-wages-consumption-and-cost-of-living">Repository</a>
+            <a href="https://gitlab.cs.washington.edu/cse512/25sp/fp/seattle-under-inflation-a-visual-analysis-of-real-wages-consumption-and-cost-of-living"><i class="fab fa-gitlab"></i> Repository</a>
             <br>
-            <a href="https://courses.cs.washington.edu/courses/cse512/25sp/">CSE 512 Data Visualization</a>
+            <a href="https://courses.cs.washington.edu/courses/cse512/25sp/"><i class="fas fa-book"></i> CSE 512 Data Visualization</a>
             <br>
-            <a href="https://www.washington.edu">University of Washington</a>
+            <a href="https://www.washington.edu"><i class="fas fa-university"></i> University of Washington</a>
           </p>
         </footer>
       </div>
     </div>
   </div>
 
+  <!-- ObservableHQ Scripts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  
+  <!-- Section 1: CPI Chart -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define, name => {
+      if (name === "cpiChart") return new Inspector(document.querySelector("#observablehq-cpiChart-0d189978"));
+    });
+  </script>
+  
+  <!-- Section 1: Mean and Median Wage Charts -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define, name => {
+      if (name === "meanWageChart") return new Inspector(document.querySelector("#observablehq-meanWageChart-0dffdf45"));
+      if (name === "meidanWageChart") return new Inspector(document.querySelector("#observablehq-meidanWageChart-0dffdf45"));
+    });
+  </script>
+  
+  <!-- Section 2: CPI Interactive Chart -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "myCPIinteractiveChart") return new Inspector(document.querySelector("#observablehq-myCPIinteractiveChart-c80d0d45"));
+    });
+  </script>
+  
+  <!-- Section 3: Affordability Charts -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
+    const runtime = new Runtime();
+    runtime.module(define, name => {
+      if (name === "viewof selected_category") return new Inspector(document.querySelector("#observablehq-viewof-selected_category-f2c244f7"));
+      if (name === "mySection3Viz") return new Inspector(document.querySelector("#observablehq-mySection3Viz-9b234192"));
+      if (name === "myEggInteractiveChart") return new Inspector(document.querySelector("#observablehq-myEggInteractiveChart-e90a81eb"));
+      if (name === "myGasInteractiveChart") return new Inspector(document.querySelector("#observablehq-myGasInteractiveChart-b278fe92"));
+      if (name === "myRentInteractiveChart") return new Inspector(document.querySelector("#observablehq-myRentInteractiveChart-0b0a5795"));
+    });
+  </script>
+  
+  <!-- Section 4: Cross-City Charts -->
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define, name => {
+      if (name === "CPI_muti") return new Inspector(document.querySelector("#observablehq-CPI_muti-6f2999bb"));
+    });
+    
+    import define2 from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
+    new Runtime().module(define2, name => {
+      if (name === "multi_meanWage") return new Inspector(document.querySelector("#observablehq-multi_meanWage-4fd0aa6f"));
+    });
+  </script>
+  
+  <!-- Navigation Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const scrollContainer = document.getElementById('scrollContainer');
