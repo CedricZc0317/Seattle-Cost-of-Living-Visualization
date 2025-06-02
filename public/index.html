@@ -18,6 +18,7 @@
       background-color: #f8f9fa;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      line-height: 1.6;
     }
     
     .scroll-container {
@@ -30,17 +31,19 @@
     .page {
       height: 100vh;
       width: 100vw;
-      padding: 40px;
+      padding: 40px 30px;
       position: relative;
       scroll-snap-align: start;
       overflow-y: auto;
       background-color: white;
+      display: flex;
+      flex-direction: column;
     }
     
     header {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       padding-bottom: 15px;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid #eaeaea;
     }
     
     h1 {
@@ -55,7 +58,6 @@
       margin: 25px 0 15px;
       color: #2980b9;
       padding-bottom: 8px;
-      border-bottom: 1px solid #e0e0e0;
       font-weight: 600;
     }
     
@@ -67,9 +69,9 @@
     }
     
     p {
-      line-height: 1.6;
       margin-bottom: 15px;
       color: #444;
+      max-width: 900px;
     }
     
     ol, ul {
@@ -84,7 +86,7 @@
     
     .nav-dots {
       position: fixed;
-      right: 30px;
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 100;
@@ -92,15 +94,13 @@
     
     .dot {
       display: block;
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background-color: #ccc;
       margin: 15px 0;
       cursor: pointer;
       transition: all 0.3s ease;
-      border: 2px solid white;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
     
     .dot.active {
@@ -110,10 +110,10 @@
     
     .navigation-buttons {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 25px;
+      right: 25px;
       display: flex;
-      gap: 15px;
+      gap: 12px;
       z-index: 101;
     }
     
@@ -121,52 +121,40 @@
       background-color: #3498db;
       color: white;
       border: none;
-      padding: 12px 25px;
-      border-radius: 30px;
+      padding: 10px 20px;
+      border-radius: 25px;
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 0.9rem;
     }
     
     .nav-btn:hover {
       background-color: #2980b9;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     .nav-btn:disabled {
       background-color: #bdc3c7;
       cursor: not-allowed;
       transform: none;
-      box-shadow: none;
     }
     
-    .content-container {
+    .content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 0 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .chart-container {
-      margin: 25px 0;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin: 20px 0;
       min-height: 300px;
-    }
-    
-    .chart-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
     }
     
     .chart-row {
@@ -179,38 +167,28 @@
       flex: 1;
       min-width: 300px;
       min-height: 300px;
-      background: #f0f8ff;
-      border-radius: 8px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     
-    .chart-box p {
-      color: #3498db;
-      font-weight: bold;
+    .team-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
     }
     
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #e0e0e0;
-      text-align: center;
-      color: #7f8c8d;
-    }
-    
-    footer a {
-      color: #3498db;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: all 0.3s ease;
-    }
-    
-    footer a:hover {
-      text-decoration: underline;
-      color: #2980b9;
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 18px;
+      font-weight: 500;
+      background: #f0f7ff;
     }
     
     .scroll-indicator {
@@ -251,42 +229,6 @@
       z-index: -1;
     }
     
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .page {
-        padding: 20px;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      .nav-dots {
-        right: 15px;
-      }
-      
-      .navigation-buttons {
-        bottom: 15px;
-        right: 15px;
-      }
-      
-      .content-container {
-        padding: 15px;
-      }
-      
-      .chart-row {
-        flex-direction: column;
-      }
-      
-      .chart-box {
-        min-width: 100%;
-      }
-    }
-    
     /* Section 3 specific styles */
     .affordability-container {
       display: grid;
@@ -297,40 +239,17 @@
     }
     
     .category-selector-container {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #e0e0e0;
+      padding: 15px;
       grid-column: 1;
       grid-row: 1;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .category-selector-container h3 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      color: #2c3e50;
-      font-size: 1.3rem;
     }
     
     .main-viz-container {
-      background: linear-gradient(to bottom right, #f0f8ff, #e6f4ff);
-      border-radius: 10px;
-      padding: 20px;
       grid-column: 1;
       grid-row: 2;
       display: flex;
       flex-direction: column;
       min-height: 300px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      border: 1px solid #d4e6f1;
-    }
-    
-    .main-viz-container h3 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      color: #2c3e50;
-      font-size: 1.3rem;
     }
     
     .price-charts-column {
@@ -342,21 +261,16 @@
     }
     
     .price-chart {
-      background: linear-gradient(to bottom right, #f0f8ff, #e6f4ff);
-      border-radius: 10px;
-      padding: 20px;
+      padding: 15px;
       flex: 1;
       display: flex;
       flex-direction: column;
       min-height: 200px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      border: 1px solid #d4e6f1;
     }
     
     .price-chart h3 {
       margin-top: 0;
       padding-bottom: 10px;
-      border-bottom: 1px solid #d4e6f1;
       color: #2c3e50;
       font-size: 1.2rem;
     }
@@ -370,18 +284,7 @@
     
     .write-up {
       margin-top: 25px;
-      padding: 20px;
-      background: #f9f9f9;
-      border-radius: 10px;
-      border-left: 5px solid #3498db;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .write-up h3 {
-      margin-top: 0;
-      color: #2c3e50;
-      font-size: 1.4rem;
-      margin-bottom: 15px;
+      padding: 20px 0;
     }
     
     .conversion-metrics {
@@ -394,21 +297,14 @@
     .metric-card {
       flex: 1;
       min-width: 200px;
-      padding: 20px;
-      background: #e3f2fd;
+      padding: 15px;
+      background: #f0f8ff;
       border-radius: 8px;
-      border-left: 4px solid #2980b9;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
     }
     
-    .metric-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
     .metric-card h4 {
-      margin: 0 0 12px 0;
+      margin: 0 0 10px 0;
       color: #2c3e50;
       font-size: 1.1rem;
       display: flex;
@@ -426,6 +322,19 @@
       line-height: 1.5;
     }
     
+    .loading-message {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #3498db;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* Responsive design */
     @media (max-width: 1024px) {
       .affordability-container {
         grid-template-columns: 1fr;
@@ -441,9 +350,38 @@
       .price-chart {
         min-height: 250px;
       }
+      
+      h1 {
+        font-size: 2rem;
+      }
     }
     
     @media (max-width: 768px) {
+      .page {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .nav-dots {
+        right: 15px;
+      }
+      
+      .navigation-buttons {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .chart-row {
+        flex-direction: column;
+      }
+      
       .price-charts-column {
         flex-direction: column;
       }
@@ -453,52 +391,23 @@
       }
     }
     
-    /* Section 3 header adjustments */
-    #page4 h2 {
-      margin-top: 0;
-      padding-bottom: 15px;
-    }
-    
-    /* Team header styling */
-    .team-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-    
-    .team-member {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #e3f2fd;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-    
-    /* Visualization title styling */
-    .viz-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-    
-    .viz-title i {
-      color: #3498db;
-      font-size: 1.3rem;
-    }
-    
-    /* Loading message styling */
-    .loading-message {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: #3498db;
-      font-weight: bold;
-      font-size: 1.2rem;
+    @media (max-width: 480px) {
+      .page {
+        padding: 25px 15px;
+      }
+      
+      h1 {
+        font-size: 1.6rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      .nav-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -529,7 +438,7 @@
         </svg>
         <span>Scroll to continue</span>
       </div>
-      <div class="content-container">
+      <div class="content">
         <header>
           <h1>Seattle Under Inflation: A Visual Analysis of Real Wages, Consumption, and Cost of Living</h1>
           <div class="team-header">
@@ -584,7 +493,7 @@
 
     <!-- Page 2: Section 1 -->
     <div id="page2" class="page">
-      <div class="content-container">
+      <div class="content">
         <header>
           <h1>Real Wages in Seattle</h1>
         </header>
@@ -592,20 +501,14 @@
         <section>
           <h2>Section 1: Real Wages in Seattle</h2>
 
-          <div class="viz-title">
-            <i class="fas fa-chart-line"></i>
-            <h3>Seattle CPI through Years</h3>
-          </div>
+          <h3>Seattle CPI through Years</h3>
           <div class="chart-container">
             <div id="observablehq-cpiChart-0d189978" class="chart-box">
               <div class="loading-message">Loading CPI Chart...</div>
             </div>
           </div>
 
-          <div class="viz-title">
-            <i class="fas fa-balance-scale"></i>
-            <h3>Mean Vs. Median Wages</h3>
-          </div>
+          <h3>Mean Vs. Median Wages</h3>
           <div class="chart-container">
             <div class="chart-row">
               <div id="observablehq-meanWageChart-0dffdf45" class="chart-box">
@@ -645,16 +548,13 @@
 
     <!-- Page 3: Section 2 -->
     <div id="page3" class="page">
-      <div class="content-container">
+      <div class="content">
         <header>
           <h1>What is Driving the Cost of Living?</h1>
         </header>
 
         <section>
-          <div class="viz-title">
-            <i class="fas fa-layer-group"></i>
-            <h2>Section 2: What is Driving the Cost of Living?</h2>
-          </div>
+          <h2>Section 2: What is Driving the Cost of Living?</h2>
           
           <div class="chart-container">
             <div id="observablehq-myCPIinteractiveChart-c80d0d45" class="chart-box">
@@ -679,16 +579,13 @@
 
     <!-- Page 4: Section 3 -->
     <div id="page4" class="page">
-      <div class="content-container">
+      <div class="content">
         <header>
           <h1>Affordability Over Time</h1>
         </header>
 
         <section>
-          <div class="viz-title">
-            <i class="fas fa-shopping-cart"></i>
-            <h2>Section 3: Affordability Over Time</h2>
-          </div>
+          <h2>Section 3: Affordability Over Time</h2>
           
           <div class="affordability-container">
             <!-- Category Selector (Top Left) -->
@@ -761,31 +658,22 @@
 
     <!-- Page 5: Section 4 -->
     <div id="page5" class="page">
-      <div class="content-container">
+      <div class="content">
         <header>
           <h1>Cross-City Comparison</h1>
         </header>
 
         <section>
-          <div class="viz-title">
-            <i class="fas fa-city"></i>
-            <h2>Section 4: Cross-City Comparison</h2>
-          </div>
+          <h2>Section 4: Cross-City Comparison</h2>
           
-          <div class="viz-title">
-            <i class="fas fa-chart-line"></i>
-            <h3>Cross-City CPI Comparison</h3>
-          </div>
+          <h3>Cross-City CPI Comparison</h3>
           <div class="chart-container">
             <div id="observablehq-CPI_muti-6f2999bb" class="chart-box">
               <div class="loading-message">Loading CPI Comparison Chart...</div>
             </div>
           </div>
 
-          <div class="viz-title">
-            <i class="fas fa-money-bill-wave"></i>
-            <h3>Cross-City Mean Wage Comparison</h3>
-          </div>
+          <h3>Cross-City Mean Wage Comparison</h3>
           <div class="chart-container">
             <div id="observablehq-multi_meanWage-4fd0aa6f" class="chart-box">
               <div class="loading-message">Loading Wage Comparison Chart...</div>
@@ -807,7 +695,7 @@
 
     <!-- Page 6: Conclusion -->
     <div id="page6" class="page">
-      <div class="content-container">
+      <div class="content">
         <header>
           <h1>Conclusion</h1>
         </header>
