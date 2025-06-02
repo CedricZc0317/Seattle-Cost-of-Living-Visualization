@@ -17,6 +17,7 @@
       color: #333;
       background-color: #f8f9fa;
       overflow-x: hidden;
+      scroll-behavior: smooth;
       line-height: 1.6;
     }
     
@@ -231,22 +232,20 @@
     /* Section 3 specific styles */
     .affordability-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr;
       grid-template-rows: auto 1fr;
       gap: 20px;
       height: calc(100% - 40px);
     }
     
     .category-selector-container {
-      grid-column: 1 / span 1;
-      grid-row: 1;
       padding: 15px;
-      display: flex;
-      flex-direction: column;
+      grid-column: 1;
+      grid-row: 1;
     }
     
     .main-viz-container {
-      grid-column: 1 / span 1;
+      grid-column: 1;
       grid-row: 2;
       display: flex;
       flex-direction: column;
@@ -254,17 +253,19 @@
     }
     
     .price-charts-column {
-      grid-column: 2 / span 1;
+      grid-column: 2;
       grid-row: 1 / span 2;
-      display: grid;
-      grid-template-rows: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 20px;
     }
     
     .price-chart {
       padding: 15px;
+      flex: 1;
       display: flex;
       flex-direction: column;
+      min-height: 200px;
     }
     
     .price-chart h3 {
@@ -343,8 +344,7 @@
       .price-charts-column {
         grid-column: 1;
         grid-row: 3;
-        grid-template-rows: auto auto;
-        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
       }
       
       .price-chart {
@@ -383,7 +383,7 @@
       }
       
       .price-charts-column {
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
       
       .conversion-metrics {
@@ -409,42 +409,7 @@
         font-size: 0.85rem;
       }
     }
-    
-    /* Visualization specific styling */
-    .observablehq {
-      width: 100%;
-      height: 100%;
-    }
-    
-    .observablehq svg {
-      max-width: 100%;
-    }
-    
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-    
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
-      text-align: center;
-    }
-    
-    footer a {
-      color: #3498db;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    
-    footer a:hover {
-      text-decoration: underline;
-    }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 </head>
 <body>
   <!-- Navigation Dots -->
@@ -619,80 +584,70 @@
           <h1>Affordability Over Time</h1>
         </header>
 
-        <section>
-          <h2>Section 3: Affordability Over Time</h2>
-          
-          <div class="affordability-container">
-            <!-- Category Selector and Main Affordability Chart (Left Column) -->
-            <div class="category-selector-container">
-              <h3><i class="fas fa-filter"></i> Select Category</h3>
-              <div id="observablehq-viewof-selected_category-f2c244f7">
-                <div class="loading-message">Loading Category Selector...</div>
-              </div>
-            </div>
-            
-            <!-- Main Affordability Chart -->
-            <div class="main-viz-container">
-              <h3><i class="fas fa-exchange-alt"></i> Hourly Wage Conversion Rate</h3>
-              <div id="observablehq-mySection3Viz-9b234192">
-                <div class="loading-message">Loading Affordability Chart...</div>
-              </div>
-            </div>
-            
-            <!-- Price Charts Column (Right Side) -->
-            <div class="price-charts-column">
-              <!-- Top Right: Eggs Price Chart -->
-              <div class="price-chart">
-                <h3><i class="fas fa-egg"></i> Eggs Price per Dozen</h3>
-                <div class="price-chart-content" id="observablehq-myEggInteractiveChart-e90a81eb">
-                  <div class="loading-message">Loading Egg Price Chart...</div>
-                </div>
-              </div>
-              
-              <!-- Bottom Right: Gas and Rent Charts -->
-              <div class="price-chart-row">
-                <div class="price-chart">
-                  <h3><i class="fas fa-gas-pump"></i> Gasoline Price per Gallon</h3>
-                  <div class="price-chart-content" id="observablehq-myGasInteractiveChart-b278fe92">
-                    <div class="loading-message">Loading Gas Price Chart...</div>
-                  </div>
-                </div>
-                <div class="price-chart">
-                  <h3><i class="fas fa-home"></i> Rental Price</h3>
-                  <div class="price-chart-content" id="observablehq-myRentInteractiveChart-0b0a5795">
-                    <div class="loading-message">Loading Rent Price Chart...</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Replace the entire Page 4 content section with this: -->
+<section>
+  <h2>Section 3: Affordability Over Time</h2>
+  
+  <div class="affordability-container">
+    <!-- Top Left: Main Affordability Chart -->
+    <div class="main-viz-container">
+      <h3 class="chart-title"><i class="fas fa-exchange-alt"></i> Hourly Wage Conversion Rate</h3>
+      <div class="chart-content" id="observablehq-mySection3Viz-9b234192">
+        <div class="loading-message">Loading Affordability Chart...</div>
+      </div>
+    </div>
+    
+    <!-- Top Right: Eggs Chart -->
+    <div class="egg-chart-container">
+      <h3 class="chart-title"><i class="fas fa-egg"></i> Eggs Price per Dozen</h3>
+      <div class="chart-content" id="observablehq-myEggInteractiveChart-e90a81eb">
+        <div class="loading-message">Loading Egg Price Chart...</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Left: Gas Chart -->
+    <div class="gas-chart-container">
+      <h3 class="chart-title"><i class="fas fa-gas-pump"></i> Gasoline Price per Gallon</h3>
+      <div class="chart-content" id="observablehq-myGasInteractiveChart-b278fe92">
+        <div class="loading-message">Loading Gas Price Chart...</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Right: Rent Chart -->
+    <div class="rent-chart-container">
+      <h3 class="chart-title"><i class="fas fa-home"></i> Rental Price</h3>
+      <div class="chart-content" id="observablehq-myRentInteractiveChart-0b0a5795">
+        <div class="loading-message">Loading Rent Price Chart...</div>
+      </div>
+    </div>
+  </div>
 
-          <div class="write-up">
-            <h3><i class="fas fa-lightbulb"></i> Understanding Affordability Metrics</h3>
-            <p>
-              The visualization above presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs.
-            </p>
-            
-            <div class="conversion-metrics">
-              <div class="metric-card">
-                <h4><i class="fas fa-egg"></i> Eggs Conversion</h4>
-                <p><strong>CPI_Eggs_convertion:</strong> How many dozens of eggs a person can buy with one hour of work.</p>
-              </div>
-              <div class="metric-card">
-                <h4><i class="fas fa-home"></i> Rent Conversion</h4>
-                <p><strong>Rent_convertion:</strong> How many hours of work are required to pay for one month of rent.</p>
-              </div>
-              <div class="metric-card">
-                <h4><i class="fas fa-gas-pump"></i> Gasoline Conversion</h4>
-                <p><strong>Gasoline_convertion:</strong> How many gallons of gasoline one can purchase with one hour of work.</p>
-              </div>
-            </div>
-            
-            <p>
-              The right column visualizations show the historical price trends for each essential commodity, helping contextualize the affordability metrics shown in the main chart.
-            </p>
-          </div>
-        </section>
+  <div class="write-up">
+    <h3><i class="fas fa-lightbulb"></i> Understanding Affordability Metrics</h3>
+    <p>
+      The visualization above presents an integrated affordability chart that combines multiple economic indicators to assess how far an hour of work can go in covering key living costs.
+    </p>
+    
+    <div class="conversion-metrics">
+      <div class="metric-card">
+        <h4><i class="fas fa-egg"></i> Eggs Conversion</h4>
+        <p><strong>CPI_Eggs_convertion:</strong> How many dozens of eggs a person can buy with one hour of work.</p>
+      </div>
+      <div class="metric-card">
+        <h4><i class="fas fa-home"></i> Rent Conversion</h4>
+        <p><strong>Rent_convertion:</strong> How many hours of work are required to pay for one month of rent.</p>
+      </div>
+      <div class="metric-card">
+        <h4><i class="fas fa-gas-pump"></i> Gasoline Conversion</h4>
+        <p><strong>Gasoline_convertion:</strong> How many gallons of gasoline one can purchase with one hour of work.</p>
+      </div>
+    </div>
+    
+    <p>
+      The four visualizations now display in a 2x2 grid layout, making it easier to compare the main affordability metrics with the individual price trends for each essential commodity.
+    </p>
+  </div>
+</section>
       </div>
     </div>
 
@@ -783,6 +738,8 @@
   </div>
 
   <!-- ObservableHQ Scripts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  
   <!-- Section 1: CPI Chart -->
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
