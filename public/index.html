@@ -215,7 +215,7 @@
       60% {transform: translateY(-5px);}
     }
     
-    /* Background pattern for visual interest */
+
     body::before {
       content: "";
       position: fixed;
@@ -229,7 +229,7 @@
       z-index: -1;
     }
     
-    /* UPDATED SECTION 3 STYLES - 四宫格 layout */
+
     .section3-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -320,7 +320,7 @@
       text-align: center;
     }
     
-    /* Responsive design */
+
     @media (max-width: 1024px) {
       .section3-grid {
         grid-template-columns: 1fr;
@@ -388,7 +388,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Dots -->
+
   <div class="nav-dots">
     <div class="dot active" data-page="1"></div>
     <div class="dot" data-page="2"></div>
@@ -398,13 +398,13 @@
     <div class="dot" data-page="6"></div>
   </div>
 
-  <!-- Navigation Buttons -->
+
   <div class="navigation-buttons">
     <button class="nav-btn" id="prevBtn" disabled><i class="fas fa-arrow-left"></i> Previous</button>
     <button class="nav-btn" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
   </div>
 
-  <!-- Scroll Container -->
+
   <div class="scroll-container" id="scrollContainer">
     <!-- Page 1: Introduction -->
     <div id="page1" class="page">
@@ -467,7 +467,7 @@
       </div>
     </div>
 
-    <!-- Page 2: Section 1 -->
+
     <div id="page2" class="page">
       <div class="content">
         <header>
@@ -522,7 +522,7 @@
       </div>
     </div>
 
-    <!-- Page 3: Section 2 -->
+
     <div id="page3" class="page">
       <div class="content">
         <header>
@@ -553,7 +553,7 @@
       </div>
     </div>
 
-    <!-- Page 4: Section 3 - UPDATED 四宫格 LAYOUT -->
+
     <div id="page4" class="page">
       <div class="content">
         <header>
@@ -563,7 +563,7 @@
         <section>
           <h2>Section 3: Affordability Over Time</h2>
           
-          <!-- UPDATED SECTION 3 LAYOUT - 四宫格 -->
+   
           <div class="section3-grid">
             <!-- Category Selector (Top Row) -->
             <div class="category-selector-container">
@@ -573,7 +573,7 @@
               </div>
             </div>
             
-            <!-- Top Left: Main Affordability Chart -->
+
             <div class="grid-item">
               <h3><i class="fas fa-exchange-alt"></i> Hourly Wage Conversion Rate</h3>
               <div class="grid-item-content" id="observablehq-mySection3Viz-9b234192">
@@ -581,7 +581,7 @@
               </div>
             </div>
             
-            <!-- Top Right: Eggs Price -->
+
             <div class="grid-item">
               <h3><i class="fas fa-egg"></i> Eggs Price per Dozen</h3>
               <div class="grid-item-content" id="observablehq-myEggInteractiveChart-e90a81eb">
@@ -589,7 +589,7 @@
               </div>
             </div>
             
-            <!-- Bottom Left: Gas Price -->
+
             <div class="grid-item">
               <h3><i class="fas fa-gas-pump"></i> Gasoline Price per Gallon</h3>
               <div class="grid-item-content" id="observablehq-myGasInteractiveChart-b278fe92">
@@ -597,7 +597,7 @@
               </div>
             </div>
             
-            <!-- Bottom Right: Rent Price -->
+
             <div class="grid-item">
               <h3><i class="fas fa-home"></i> Rental Price</h3>
               <div class="grid-item-content" id="observablehq-myRentInteractiveChart-0b0a5795">
@@ -635,7 +635,7 @@
       </div>
     </div>
 
-    <!-- Page 5: Section 4 -->
+
     <div id="page5" class="page">
       <div class="content">
         <header>
@@ -672,7 +672,7 @@
       </div>
     </div>
 
-    <!-- Page 6: Conclusion -->
+
     <div id="page6" class="page">
       <div class="content">
         <header>
@@ -721,10 +721,10 @@
     </div>
   </div>
 
-  <!-- ObservableHQ Scripts -->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
   
-  <!-- Section 1: CPI Chart -->
+
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     import define from "https://api.observablehq.com/d/bcb9c5b93f96c770.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
@@ -733,7 +733,7 @@
     });
   </script>
   
-  <!-- Section 1: Mean and Median Wage Charts -->
+
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@142.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
@@ -743,7 +743,7 @@
     });
   </script>
   
-  <!-- Section 2: CPI Interactive Chart -->
+
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
@@ -752,7 +752,7 @@
     });
   </script>
   
-  <!-- Section 3: Affordability Charts -->
+
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     import define from "https://api.observablehq.com/d/58fd8929c1e857a6.js?v=4";
@@ -766,7 +766,7 @@
     });
   </script>
   
-  <!-- Section 4: Cross-City Charts -->
+
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@124.js?v=4&api_key=5dca21144c760d04819bbe62a78cf84f4a0fb9da";
@@ -780,7 +780,7 @@
     });
   </script>
   
-  <!-- Navigation Script -->
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const scrollContainer = document.getElementById('scrollContainer');
@@ -792,30 +792,30 @@
       let isScrolling = false;
       let scrollTimeout;
       
-      // Function to update page and navigation
+
       function updatePage(newPage) {
-        // Validate page number
+
         if (newPage < 1) newPage = 1;
         if (newPage > pages.length) newPage = pages.length;
         
-        // Update current page
+
         currentPage = newPage;
         
-        // Scroll to the new page
+
         pages[newPage - 1].scrollIntoView({ behavior: 'smooth' });
         
-        // Update dot states
+
         dots.forEach(dot => {
           dot.classList.remove('active');
         });
         document.querySelector(`.dot[data-page="${currentPage}"]`).classList.add('active');
         
-        // Update button states
+
         prevBtn.disabled = currentPage === 1;
         nextBtn.disabled = currentPage === pages.length;
       }
       
-      // Dot click event
+
       dots.forEach(dot => {
         dot.addEventListener('click', function() {
           const pageNum = parseInt(this.getAttribute('data-page'));
@@ -823,17 +823,17 @@
         });
       });
       
-      // Previous button event
+
       prevBtn.addEventListener('click', function() {
         updatePage(currentPage - 1);
       });
       
-      // Next button event
+
       nextBtn.addEventListener('click', function() {
         updatePage(currentPage + 1);
       });
       
-      // Keyboard navigation
+
       document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
           updatePage(currentPage - 1);
@@ -842,38 +842,38 @@
         }
       });
       
-      // Scroll event handler
+
       scrollContainer.addEventListener('scroll', function() {
-        // Prevent multiple triggers
+
         if (isScrolling) return;
         isScrolling = true;
         
-        // Clear any existing timeout
+
         clearTimeout(scrollTimeout);
         
-        // Get the current scroll position
+
         const scrollPosition = scrollContainer.scrollTop;
         const pageHeight = window.innerHeight;
         
-        // Calculate the current page index
+
         const newPage = Math.round(scrollPosition / pageHeight) + 1;
         
-        // Update the current page if it has changed
+ 
         if (newPage !== currentPage && newPage >= 1 && newPage <= pages.length) {
           currentPage = newPage;
           
-          // Update dot states
+
           dots.forEach(dot => {
             dot.classList.remove('active');
           });
           document.querySelector(`.dot[data-page="${currentPage}"]`).classList.add('active');
           
-          // Update button states
+
           prevBtn.disabled = currentPage === 1;
           nextBtn.disabled = currentPage === pages.length;
         }
         
-        // Reset scrolling flag after a short delay
+
         scrollTimeout = setTimeout(() => {
           isScrolling = false;
         }, 100);
