@@ -4,15 +4,20 @@ The files in the [public](/public) directory are deployed to: https://cse512.pag
 
 Data Source:
 
-Section 1
-The Wage data in this section come from the Bureau of Labor Statistics Occupational Employment and Wage Statistics (OEWS). You can access the wage data here: https://www.bls.gov/oes/tables.htm
+Section 1:
 
-The CPI data in this section come from the Federal Reserve Economic Data. You can access the CPI data here: https://fred.stlouisfed.org/series/CUURA423SA0
+The Mean and Median Wage data in this section come from the Bureau of Labor Statistics Occupational Employment and Wage Statistics (OEWS). You can access the wage data here: 🔗 https://www.bls.gov/oes/tables.htm
 
-Section 2
+The CPI data in this section come from the Federal Reserve Economic Data. You can access the CPI data here: 🔗 https://fred.stlouisfed.org/series/CUURA423SA0
+
+
+Section 2:
+
 The data in this section is sourced from the U.S. Bureau of Labor Statistics (BLS), specifically the Consumer Price Index (CPI) database filtered for the Seattle metropolitan area. You can access the CPI database here: 🔗 https://www.bls.gov/cpi/
 
-Section 3
+
+Section 3:
+
 This section integrates data from multiple authoritative sources to analyze affordability over time in the Seattle-Tacoma-Bellevue region:
 
 Egg Prices:
@@ -31,13 +36,14 @@ Hourly Wages:
 Average Hourly Earnings of All Employees: Total Private, for the Seattle-Tacoma-Bellevue, WA (MSA), annual average (not seasonally adjusted).
 Source: Federal Reserve Bank of St. Louis (FRED) 🔗 https://fred.stlouisfed.org
 
-Section 4
-The Wage data in this section come from the Bureau of Labor Statistics Occupational Employment and Wage Statistics (OEWS). You can access the wage data here: https://www.bls.gov/oes/tables.htm
+Section 4:
 
-The CPI data in this section come from the Federal Reserve Economic Data. You can access the CPI data here: https://fred.stlouisfed.org
+The Wage data in this section come from the Bureau of Labor Statistics Occupational Employment and Wage Statistics (OEWS). You can access the wage data here: 🔗 https://www.bls.gov/oes/tables.htm
+
+The CPI data in this section come from the Federal Reserve Economic Data. You can access the CPI data here: 🔗 https://fred.stlouisfed.org
 
 Observable Notebook:
 
-Section 1 & Section 4 (Vincent): https://observablehq.com/d/bcb9c5b93f96c770
+Section 1 & Section 4 (Vincent): 🔗 https://observablehq.com/d/bcb9c5b93f96c770
 
-Section 2 & Section 3 (Chi): https://observablehq.com/d/58fd8929c1e857a6
+Section 2 & Section 3 (Chi): 🔗 https://observablehq.com/d/58fd8929c1e857a6
