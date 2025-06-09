@@ -660,11 +660,15 @@
           </script>
 
           <h3>Cross-City Mean Wage Comparison</h3>
-          <div class="chart-container">
-            <div id="observablehq-multi_meanWage-4fd0aa6f" class="chart-box">
-              <div class="loading-message">Loading Wage Comparison Chart...</div>
-            </div>
-          </div>
+          <div id="observablehq-myWageInteractiveChart-e1dc776e"></div>      
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+          <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@437.js?v=4";
+          new Runtime().module(define, name => {
+            if (name === "myWageInteractiveChart") return new Inspector(document.querySelector("#observablehq-myWageInteractiveChart-e1dc776e"));
+          });
+          </script>
 
           <div class="write-up">
             <h3><i class="fas fa-key"></i> Key Insights</h3>
