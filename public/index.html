@@ -648,11 +648,15 @@
           <h2>Section 4: Cross-City Comparison</h2>
           
           <h3>Cross-City CPI Comparison</h3>
-          <div class="chart-container">
-            <div id="observablehq-CPI_muti-6f2999bb" class="chart-box">
-              <div class="loading-message">Loading CPI Comparison Chart...</div>
-            </div>
-          </div>
+          <div id="observablehq-CPI_areas-dbd2bb29"></div>        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+          <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/bcb9c5b93f96c770@414.js?v=4";
+          new Runtime().module(define, name => {
+            if (name === "CPI_areas") return new Inspector(document.querySelector("#observablehq-CPI_areas-dbd2bb29"));
+          });
+          </script>
 
           <h3>Cross-City Mean Wage Comparison</h3>
           <div class="chart-container">
