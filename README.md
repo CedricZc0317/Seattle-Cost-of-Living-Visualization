@@ -41,9 +41,3 @@ Section 4:
 The Wage data in this section come from the Bureau of Labor Statistics Occupational Employment and Wage Statistics (OEWS). You can access the wage data here: 🔗 https://www.bls.gov/oes/tables.htm
 
 The CPI data in this section come from the Federal Reserve Economic Data. You can access the CPI data here: 🔗 https://fred.stlouisfed.org
-
-Observable Notebook:
-
-Section 1 & Section 4 (Vincent): 🔗 https://observablehq.com/d/bcb9c5b93f96c770
-
-Section 2 & Section 3 (Chi): 🔗 https://observablehq.com/d/58fd8929c1e857a6
